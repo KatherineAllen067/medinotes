@@ -1,10 +1,11 @@
 import React, {Component} from "react";
-import '../styles/Main.scss';
+import '../../../styles/Login.scss';
 
-class Main extends Component{
+class Login extends Component{
     render(){
         return(
             <>
+            
             </>
         )
     }
@@ -12,4 +13,4 @@ class Main extends Component{
 
 
 
-export default Main;
+export default Login;

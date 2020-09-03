@@ -1,4 +1,4 @@
-import {Component} from "react";
+import React, {Component} from "react";
 import '../styles/Quiz.scss';
 
 class Quiz extends Component{
@@ -14,7 +14,11 @@ class Quiz extends Component{
 //each answer will have a id
 //the id will be associated with a type of practitioner 
 //if you pick yes to a question there will be two types of practitioners give as result
-//skin conditions(125), muscle and joint pain(525), gastral intestinal(225), well-being(325), or growing family (425)
+//skin conditions(125)
+// muscle and joint pain(525)
+// gastral intestinal(225)
+//well-being(325)
+// growing family (425)
 
 
 

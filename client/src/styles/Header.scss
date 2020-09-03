@@ -1,3 +1,17 @@
-@import '../partials.scss';
-@import '../fonts';
-@import '../mixins';
+@import './partials';
+@import './mixins';
+@import './fonts';
+
+.header{
+    width:100%;
+    height:8rem;
+    background-color:navy;
+    display:flex;
+    align-items: center;
+    &-title{
+        color:#ffffff;
+        font-family:$title;
+        margin:0;
+        padding:1rem;
+    }
+}

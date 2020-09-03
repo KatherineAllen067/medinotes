@@ -1,5 +1,5 @@
-import {Component} from "react";
-import '../styles/Calendar.scss';
+import React, {Component} from "react";
+import "../styles/Calendar.scss";
 
 
 class Calendar extends Component{
