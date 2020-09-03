@@ -1,3 +1,61 @@
 @import './partials';
 @import './mixins';
 @import './fonts';
+
+.log-title{
+    font-family:$title;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.log-box{
+    display:flex;
+    flex-direction:column;
+    padding:2rem;
+    align-items: center;
+}
+.log-box2{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:1.5rem;
+}
+
+.log-label{
+    font-family:$medium;
+    padding:0.5rem;
+}
+.log-box3{
+    width:500px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input{
+    width:13rem;
+    height:2rem;
+    border-radius: 2rem;
+    outline:navy;
+    padding:0.5rem;
+    // &:active{
+    //     border:navy;
+    // }
+    &::placeholder{
+        color:navy;
+        font-family:$medium;
+        padding-left:0.5rem;
+    }
+}
+.log-button{
+    font-family:$light;
+    width:13rem;
+    height:2.5rem;
+    color:#ffffff;
+    background-color:navy;
+    border-radius:2rem;
+    border:none;
+    &:hover{
+        border-color:white;
+    }
+}
