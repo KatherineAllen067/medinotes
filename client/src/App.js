@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.scss';
 import Header from "./Components/Header/Header.js";
+import Login from "./Pages/Login.js";
 import CalendarPage from "./Pages/Calendar.js";
 import Quiz from "./Pages/Quiz.js";
 import Notes from "./Pages/Notes.js";
@@ -13,7 +14,8 @@ function App() {
   <BrowserRouter>
   <Header />
     <Switch>
-      <Route exact path="/" component={Main}/>
+      <Route exact path="/" component={Login}/>
+      <Route exact path="/main" component={Main}/>
       <Route exact path="/notes" component={Notes}/>
       <Route exact path="/quiz" component={Quiz}/>
       <Route exact path="/calendar" component={CalendarPage}/>
