@@ -8,6 +8,7 @@
     background-color:navy;
     display:flex;
     align-items: center;
+    justify-content: space-between;
     &-title{
         color:#ffffff;
         font-family:$title;
