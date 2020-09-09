@@ -12,7 +12,7 @@ const { v4: uuidv4 } = require("uuid");
 
 //get notes endpoint
 router.get("/", (req, res)=>{
-    res.status(200).json(
+  res.status(200).json(
         notes.map(n=>({
             id: n.id,
             username: n.username,
@@ -34,7 +34,7 @@ router.post("/add", (req, res)=>{
     res.status(201).json(notes);
 })
 
-//edit notes endpoint 
+//edit notes endpoint front-end click for each note element
 
 //delete notes endpoint
 
