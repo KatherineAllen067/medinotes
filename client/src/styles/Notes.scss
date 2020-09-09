@@ -1,0 +1,36 @@
+@import './partials';
+@import './mixins';
+@import './fonts';
+
+.noteTitle{
+    margin:0;
+    padding:2rem;
+}
+
+textarea{
+    width:18rem;
+    height:14rem;
+    border: 1px solid navy;
+    border-radius: 2rem;
+    resize:none;
+}
+
+.note{
+    display:flex;
+    flex-direction: column;
+}
+
+.new{
+    display:flex;
+    flex-direction: column;  
+}
+
+.old{
+    display:flex;
+    flex-direction: column;
+}
+
+.noteBox{
+    display:flex;
+    justify-content: center;
+}

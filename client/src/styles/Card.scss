@@ -1,0 +1,56 @@
+@import './partials';
+@import './mixins';
+@import './fonts';
+
+// rgba(0, 0, 0, 0.4)
+
+.card{
+    width:100%;
+    display:flex;
+    justify-content: space-evenly;
+        &-nav-title{
+            font-family:$title;
+            padding:0.5rem;
+            display:flex;
+            justify-content: center;
+            margin:0;
+        }
+}
+
+.link{
+    color:black;
+    text-decoration:none;
+}
+
+.card-nav1{
+        width:18rem;
+        height:20rem;
+        border: 1px solid navy;
+        border-radius:2rem;
+        overflow:hidden;
+        background-image: url('./assets/images/notes-bg.jpg');
+        background-size:cover;
+        box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+
+}
+.card-nav2{
+    width:18rem;
+    height:20rem;
+    border: 1px solid navy;
+    border-radius:2rem;
+    overflow:hidden;
+    background-image: url('./assets/images/quiz-card.jpg');
+    background-size:cover;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+    
+}
+.card-nav3{
+    width:18rem;
+    height:20rem;
+    border: 1px solid navy;
+    border-radius:2rem;
+    overflow:hidden;
+    background-image: url('./assets/images/calendar-card.jpg');
+    background-size:cover;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+}

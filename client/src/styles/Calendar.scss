@@ -1,0 +1,42 @@
+@import './partials';
+@import './mixins';
+@import './fonts';
+
+.calTitle{
+    margin:0;
+    padding:2rem;
+}
+
+.react-calendar{
+    font-family:$medium;
+    width:30rem;
+    height:30rem;
+    margin:0 auto;
+
+    &__tile{
+        height:70px;
+    }
+    &__navigation{
+        height:3rem;   
+    }
+    &__navigation__label{
+        font-size:2rem;
+        font-family:$title;
+        background-color:rgba(156, 198, 238, 0.4);
+         border:none;
+    }
+    &__navigation__arrow{
+        display:none;
+    }
+    &__tile{
+        background-color:rgba(156, 198, 238, 0.4);
+        border:1px solid navy;
+    }
+    &__month-view__weekdays{
+        background-color:rgba(156, 198, 238, 0.4);
+    }
+}
+
+abbr[title]{
+    text-decoration:none;
+}

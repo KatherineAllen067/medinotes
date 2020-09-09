@@ -1,0 +1,25 @@
+@import './partials';
+@import './mixins';
+@import './fonts';
+
+.header{
+    width:100%;
+    height:8rem;
+    background-color:navy;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    &-title{
+        color:#ffffff;
+        font-family:$title;
+        margin:0;
+        padding:1rem;
+    }
+    &-icon{
+        width:2.5rem;
+        height:2rem;
+        position: relative;
+        top: -26px;
+        left: -20px;
+    }
+}

@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import './App.scss';
+import Header from "./Components/Header/Header.js";
+import CalendarPage from "./Pages/Calendar.js";
+import Quiz from "./Pages/Quiz.js";
+import Notes from "./Pages/Notes.js";
+import Main from "./Pages/Main.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+  <BrowserRouter>
+  <Header />
+    <Switch>
+      <Route exact path="/main" component={Main}/>
+      <Route exact path="/notes" component={Notes}/>
+      <Route exact path="/quiz" component={Quiz}/>
+      <Route exact path="/calendar" component={CalendarPage}/>
+    </Switch>
+  </BrowserRouter>
+  </>
   );
 }
 

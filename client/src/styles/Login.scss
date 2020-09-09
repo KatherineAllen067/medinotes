@@ -1,0 +1,61 @@
+@import './partials';
+@import './mixins';
+@import './fonts';
+
+.log-title{
+    font-family:$medium;
+    font-size:1.5rem;
+    color:#ffffff;
+    display: flex;
+    justify-content: center; 
+    padding:0.5rem;  
+}
+
+.log-box{
+    display:flex;
+    align-items: center;
+}
+
+.log-label{
+    color:#ffffff;
+    font-family:$medium;
+    padding:0.5rem;
+}
+
+input{
+    width:8rem;
+    height:1rem;
+    border-radius: 1.5rem;
+    outline:navy;
+    padding:0.5rem;
+    &::placeholder{
+        color:navy;
+        font-family:$medium;
+        padding-left:0.5rem;
+    }
+}
+.log-button{
+    font-family:$light;
+    width:10rem;
+    height:1.5rem;
+    color:#ffffff;
+    background-color:navy;
+    border:none;
+    display: flex;
+    align-items: center;
+}
+
+.button_icon{
+    width:2rem;
+}
+
+.form-row{
+    display:flex;
+    width:540px;
+}
+
+.login{
+    width: 350px;
+    display: flex;
+    align-items: center;
+}
