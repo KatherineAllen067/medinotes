@@ -77,7 +77,6 @@ app.get('/notes', authorize, (req, res)=>{
 });
 
 
-
 //endpoints for quiz and notes
 // app.use("/quiz", quiz);
 
