@@ -1,5 +1,6 @@
 [
     {
+        "id": "1",
         "username": "Emily",
         "date": "May 3 2018",
         "practitioner": "Dr.Wilson",
@@ -8,6 +9,7 @@
 
     },
     {
+        "id": "2",
         "username": "Emily",
         "date": "May 3 2018",
         "practitioner": "Dr.Wilson",
@@ -16,6 +18,7 @@
 
     },
     {
+        "id": "3",
         "username": "Emily",
         "date": "May 3 2018",
         "practitioner": "Dr.Wilson",
@@ -24,6 +27,7 @@
 
     },
     {
+        "id": "4",
         "username": "Emily",
         "date": "May 3 2018",
         "practitioner": "Dr.Wilson",
@@ -31,14 +35,7 @@
 
     },
     {
-        "username": "Emily",
-        "date": "May 3 2018",
-        "practitioner": "Dr.Wilson",
-        "note": "didn’t like this doctor because they made me wait really long and I was late going back to work"
-
-
-    },
-    {
+        "id": "5",
         "username": "Emily",
         "date": "May 3 2018",
         "practitioner": "Dr.Wilson",
@@ -47,6 +44,7 @@
 
     },
     {
+        "id": "6",
         "username": "Emily",
         "date": "May 3 2018",
         "practitioner": "Dr.Wilson",
@@ -55,6 +53,16 @@
 
     },
     {
+        "id": "7",
+        "username": "Emily",
+        "date": "May 3 2018",
+        "practitioner": "Dr.Wilson",
+        "note": "didn’t like this doctor because they made me wait really long and I was late going back to work"
+
+
+    },
+    {
+        "id": "8",
         "username": "Liam",
         "date": "January 6, 2020",
         "practitioner": "Dr.Ulma",
@@ -63,6 +71,7 @@
 
     },
     {
+        "id": "9",
         "username": "Liam",
         "date": "April 3, 2018",
         "practitioner": "Dr.Rudy",
@@ -71,6 +80,7 @@
 
     },
     {
+        "id": "10",
         "username": "Liam",
         "date": "September, 8 2019",
         "practitioner": "Dr.Brown",
@@ -79,6 +89,7 @@
 
     },
     {
+        "id": "11",
         "username": "Liam",
         "date": "October 15, 2016",
         "practitioner": "Dr.Tazin",
