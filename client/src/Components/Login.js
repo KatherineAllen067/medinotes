@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from 'axios';
 import '../styles/Login.scss';
 import LogIN from '../styles/assets/icons/login-icon.png';
 import LogOUT from '../styles/assets/icons/logout-icon-white.png';
 
-function Login(){
- const [ login, setLogin ] = useState(false)
- const [name, setName] = useState('')
- const [ profile, setProfile ] = useState(null)
+function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
 
  //handle submit to login
  const handleLogin =e=>{
@@ -21,26 +18,28 @@ function Login(){
      .then(res=>{
          console.log('Login sucessful: ', res.data);
          localStorage.setItem('userAuthToken',res.data.token);
-         setLogin(true)
-         getProfile();
+         setLoggedIN(true)
+         accessProfile();
         })
         .catch(error=>console.log('Login error', error));
     }
 
- const getProfile=()=>{
-    const authToken = localStorage.getItem('userAuthToken');
-    console.log('auth token is: ', authToken);
-    axios.get('http://localhost:8080/notes', {
-        headers: { authorization: `Bearer ${authToken}` }
-    })
-    .then(res=>{
-        console.log('profile response', res.data);
-        setProfile(res.data) 
-        setName(res.data.tokenInfo.username)
-        setLogin(true)
-    })
-    .catch(err=> console.log('profile error', err));
- }
+//  const getProfile=()=>{
+//     const authToken = localStorage.getItem('userAuthToken');
+//     console.log('auth token is: ', authToken);
+//     axios.get('http://localhost:8080/notes', {
+//         headers: { authorization: `Bearer ${authToken}` }
+//     })
+//     .then(res=>{
+//         console.log('profile response', res.data);
+//         setUser(res.data) 
+//         setLogin(true)
+//     })
+//     .catch(err=> console.log('profile error', err));
+//  }
+
+ //when componen mounts is there a token set login state-- 
+ //login from here, but state is set state higher in the tree 
 
  //onclick to handle logout
 
@@ -48,7 +47,7 @@ function Login(){
     return(
         <>
         {
-         login === false ?
+         loggedIN === false ?
             (
              <div className="log-box">
                  <form onSubmit={handleLogin}>
@@ -78,7 +77,7 @@ function Login(){
             : 
             (
             <div className="login">
-            <h2 className="log-title">Welcome {name}</h2>
+            <h2 className="log-title">Welcome {userName}</h2>
             <form>
                 <button 
                  type="submit"

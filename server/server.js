@@ -2,12 +2,10 @@ require('dotenv').config()
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const notes = require('./notes/notes.json');
-const quiz = require('./quiz/quiz.json');
+const notes = require('./routes/notes.js');
+const quiz = require('./routes/quiz.js');
 const bodyparser = require("body-parser");
 const jwt =require('jsonwebtoken');
-//do I need to use bcrypt to read the token on the frontend?
-// const bcrypt = require('bcrypt');
 //middleware for cors
 app.use(cors());
 //for posting to data sets
@@ -66,22 +64,13 @@ app.post('/login', (req, res)=>{
     }
 });
 
-//protected notes route
-app.get('/notes', authorize, (req, res)=>{
-    res.json({
-        tokenInfo: req.jwtDecoded,
-        information:{
-            notes: 'user notes'
-        }
-    });
-});
+app.use('/notes', authorize, notes);
+//
 
-
-//endpoints for quiz and notes
-// app.use("/quiz", quiz);
+//endpoints for quiz
+// app.use("/quiz", quiz)
 
 //user A 1234, user B 4321
-
 app.listen(8080, ()=>{
     console.log('medinotes listening on 8080');
 });

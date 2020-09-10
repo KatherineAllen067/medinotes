@@ -14,12 +14,6 @@ class Card extends Component{
                         <div className="card-nav-image1"></div>
                     </div>
                 </Link>
-                <Link to="/quiz" className="link">
-                    <div className="card-nav2">
-                        <h2 className="card-nav-title">Quiz</h2>
-                        <div className="card-nav-image2"></div>
-                    </div>
-                </Link>
                 <Link to="/calendar" className="link">
                     <div className="card-nav3">
                         <h2 className="card-nav-title">Calendar</h2>

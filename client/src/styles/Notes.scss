@@ -1,6 +1,6 @@
-@import './partials';
-@import './mixins';
-@import './fonts';
+@import './_partials';
+@import './_mixins';
+@import './_fonts';
 
 .noteTitle{
     margin:0;
@@ -11,19 +11,60 @@ textarea{
     width:18rem;
     height:14rem;
     border: 1px solid navy;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     resize:none;
 }
 
-.note{
+.notes{
+    width:430px;
     display:flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &__input{
+        width:18rem;
+        border: 1px solid navy;
+        border-radius: 1.5rem;
+    }
+    &__new{
+        display:flex;
+        flex-direction: column;  
+    }
+    &__search{
+        display:flex;
+        flex-direction: column;
+    }
+    &__btn{
+        background-color:#ffffff;
+        border:none;
+    }
+    &__bottom{
+        display: flex;
+        justify-content: space-evenly;
+        &--1{
+            display: flex;
+            justify-content: space-evenly; 
+        }
+    }
+    &__header{
+        font-family:$medium;
+    }
 }
 
-.new{
+
+.note2{
+    width:50%;
     display:flex;
-    flex-direction: column;  
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    &__column{
+        width:600px;
+        height:750px;
+        overflow:scroll;
+    }
 }
+
 
 .old{
     display:flex;
@@ -31,6 +72,43 @@ textarea{
 }
 
 .noteBox{
+    width:100%;
+    height:850px;
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.note{
+    width: 30rem;
+    margin:0 auto;
+    &__row{
+        display:flex;
+        justify-content: space-between;
+    }
+}
+
+.note__cell{
+    font-family: $title;
+    padding:0.5rem;
+}
+.note__blurb{
+    font-family:$medium;
+}
+
+.icon-delete{
+    width:1.5rem;
+    height:1.5rem;
+}
+.icon-edit{
+    width:1.5rem;
+    height:1.5rem;
+}
+.icon-add{
+    width:2rem;
+    height:2rem;
+}
+
+.icon-search{
+    width:2rem;
+    height:2rem;
 }

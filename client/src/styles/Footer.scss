@@ -1,0 +1,21 @@
+@import './fonts';
+@import './mixins';
+@import './partials';
+
+.footer{
+    width:100%;
+    height:8rem;
+    background-color:navy;
+    display:flex;
+    align-items: center;
+    &-title{
+        color:#ffffff;
+        font-family:$title;
+        margin:0;
+        padding:1rem;
+    }
+    &-icon{
+        width:2.5rem;
+        height:2rem;
+    }
+}

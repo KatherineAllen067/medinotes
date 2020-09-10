@@ -22,7 +22,7 @@ router.get("/", (req, res)=>{
 })
 
 //post notes endpoint
-router.post("/add", (req, res)=>{
+router.post("/", (req, res)=>{
     console.log('req body', req.body);
     const newNote = {
         ...req.body,

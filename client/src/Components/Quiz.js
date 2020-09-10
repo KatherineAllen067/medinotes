@@ -1,19 +1,32 @@
-import React, {Component} from "react";
+import React from "react";
+import Header from '../Components/Header/Header.js';
+import Footer from '../Components/Footer/Footer.js';
+import Delete from '../styles/assets/icons/delete-icon.png';
+import Send from '../styles/assets/icons/send-icon.png';
 import '../styles/Quiz.scss';
 
-class Quiz extends Component{
-    render(){
+function Quiz (){
+
+	const getQuiz=(e)=>{
+		e.preventDefault();
+	}
         return(
             <>
-            <h1 className="quizTitle">Quiz</h1>
+			<Header />
+			<div className="quiz__container">
             <div className="quiz">
-                <form>
-                <label>Do you have Concerns about any Skin Conditions?</label>
-					<div className="question">
+            <h1 className="quizTitle">Quiz</h1>
+                <form onSubmit={getQuiz}>
+				<div className="quiz__question">
+					<label
+					className="quiz__question--label"
+					>Do you have Concerns about any Skin Conditions?
+					</label>
+					<div className="quiz__question--radio">
                         <span className="answer">Yes</span>
 						<input
 						type="radio"
-						className="question1"
+						className="quiz__question--radio-btn"
 						name="question1"
 						value="125"
 						></input>
@@ -25,8 +38,12 @@ class Quiz extends Component{
 						value="0"
 						></input>
                     </div> 
-                    <label>Do you have Concerns about Muscules and Joints?</label>
-					<div className="question">
+				</div>
+				<div className="quiz__question">
+                    <label
+					className="quiz__question--label">
+						Do you have Concerns about Muscules and Joints?</label>
+					<div className="quiz__question--radio">
                         <span className="answer">Yes</span>
 						<input
 						type="radio"
@@ -42,8 +59,12 @@ class Quiz extends Component{
 						value="0"
 						></input>
                     </div> 
-                    <label>Do you have Concerns about your Gastrointestinal system?</label>
-					<div className="question">
+				</div>
+				<div className="quiz__question">
+                    <label
+					className="quiz__question--label">
+						Do you have Concerns about your Gastrointestinal system?</label>
+					<div className="quiz__question--radio">
                         <span className="answer">Yes</span>
 						<input
 						type="radio"
@@ -59,8 +80,12 @@ class Quiz extends Component{
 						value="0"
 						></input>
                     </div>
-                    <label>Do you have Concerns about your well-being?</label>
-					<div className="question">
+				</div>
+				<div className="quiz__question">
+                    <label 
+					className="quiz__question--label">
+						Do you have Concerns about your well-being?</label>
+					<div className="quiz__question--radio">
                         <span className="answer">Yes</span>
 						<input
 						type="radio"
@@ -76,8 +101,12 @@ class Quiz extends Component{
 						value="0"
 						></input>
                     </div>
-                    <label>Do you have Concerns about family planning?</label>
-					<div className="question">
+				</div>
+				<div className="quiz__question">
+                    <label
+					className="quiz__question--label">
+						Do you have Concerns about family planning?</label>
+					<div className="quiz__question--radio">
                         <span className="answer">Yes</span>
 						<input
 						type="radio"
@@ -93,13 +122,35 @@ class Quiz extends Component{
 						value="0"
 						></input>
                     </div>
-                    <button type="submit" className="quiz-btn">See Results</button>
-                    <button type="submit" className="quiz-btn2">Cancel</button>
+				</div>
+					<div className="quiz__bottom">
+						<button 
+						type="submit" 
+						className="quiz-btn"
+						>
+							<img src={Send}
+							alt="send icon"
+							className="send-icon"
+							/>
+						</button>
+						<button 
+						type="submit" 
+						className="quiz-btn"
+						>
+							<img src={Delete}
+							alt="delete icon"
+							className="delete-icon"
+							/>
+						</button>
+					</div>
                 </form>
             </div>
+			<div className="quiz__results">
+			</div>
+			</div>
+			<Footer />
             </>
         )
-    }
 }
 //five questions yes or no about health concerns
 //each answer will have a id
