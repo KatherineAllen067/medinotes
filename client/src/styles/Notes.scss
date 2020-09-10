@@ -83,7 +83,21 @@ textarea{
     margin:0 auto;
     &__row{
         display:flex;
+        flex-direction: column;
         justify-content: space-between;
+        padding:0.5rem;
+        &-btn{
+            display:flex;
+            justify-content: space-between;
+        }
+    }
+    &__details{
+        display:flex;
+        justify-content: space-between;
+    }
+    &__link{
+        text-decoration:none;
+        color:black;
     }
 }
 

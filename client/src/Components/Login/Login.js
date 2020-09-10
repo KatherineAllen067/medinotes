@@ -1,11 +1,10 @@
 import React from "react";
 import axios from 'axios';
-import '../styles/Login.scss';
-import LogIN from '../styles/assets/icons/login-icon.png';
-import LogOUT from '../styles/assets/icons/logout-icon-white.png';
+import '../../styles/Login.scss';
+import LogIN from '../../styles/assets/icons/login-icon.png';
+import LogOUT from '../../styles/assets/icons/logout-icon-white.png';
 
 function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
-
  //handle submit to login
  const handleLogin =e=>{
      e.preventDefault();
@@ -24,24 +23,13 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
         .catch(error=>console.log('Login error', error));
     }
 
-//  const getProfile=()=>{
-//     const authToken = localStorage.getItem('userAuthToken');
-//     console.log('auth token is: ', authToken);
-//     axios.get('http://localhost:8080/notes', {
-//         headers: { authorization: `Bearer ${authToken}` }
-//     })
-//     .then(res=>{
-//         console.log('profile response', res.data);
-//         setUser(res.data) 
-//         setLogin(true)
-//     })
-//     .catch(err=> console.log('profile error', err));
-//  }
+    const handleLogout = () => {
+        localStorage.removeItem('clientAuthToken');
+        setLoggedIN(false);
+      }
 
  //when componen mounts is there a token set login state-- 
  //login from here, but state is set state higher in the tree 
-
- //onclick to handle logout
 
  //conditional render show username and welcome and nav cards 
     return(
@@ -59,7 +47,7 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
                         placeholder="Username..."></input>
                         <label className="log-label">Password</label>
                         <input 
-                        type="text" 
+                        type="password" 
                         name="password" 
                         placeholder="Password..."></input>
                         <button 
@@ -67,7 +55,10 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
                         name="login" 
                         className="log-button">
                             Login
-                            <img src={LogIN} alt="login icon" className="button_icon"/>
+                            <img 
+                            src={LogIN} 
+                            alt="login icon" 
+                            className="button_icon"/>
                         </button>
                      </div>
                  </form>
@@ -83,7 +74,11 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
                  type="submit"
                  className="log-button">
                      logout
-                     <img src={LogOUT} alt="login icon" className="button_icon"/>
+                     <img 
+                     src={LogOUT} 
+                     alt="login icon" 
+                     className="button_icon"
+                     onClick={handleLogout}/>
                 </button>
             </form>
             </div>

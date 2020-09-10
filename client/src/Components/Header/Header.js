@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import '../../styles/Header.scss';
 import NotePad from '../../styles/assets/icons/notes-icon.png';
-import Login from '../Login.js';
+import Login from '../Login/Login.js';
 
 function Header({ profile, setProfile, name, setName, login, setLogin, fetchProfile }){
 

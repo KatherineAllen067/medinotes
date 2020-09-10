@@ -1,11 +1,18 @@
 import React from "react";
-import Header from '../Components/Header/Header.js';
-import Footer from '../Components/Footer/Footer.js';
-import Delete from '../styles/assets/icons/delete-icon.png';
-import Send from '../styles/assets/icons/send-icon.png';
-import '../styles/Quiz.scss';
+import { useHistory } from "react-router-dom";
+import Header from '../Header/Header.js';
+import Footer from '../Footer/Footer.js';
+import Delete from '../../styles/assets/icons/delete-icon.png';
+import Send from '../../styles/assets/icons/send-icon.png';
+import Back from '../../styles/assets/icons/back-icon.png';
+import '../../styles/Quiz.scss';
 
 function Quiz (){
+	let history = useHistory();
+
+	function goBack(){
+		history.push("/")
+	}
 
 	const getQuiz=(e)=>{
 		e.preventDefault();
@@ -17,6 +24,10 @@ function Quiz (){
 			<Header />
 			<div className="quiz__container">
             <div className="quiz">
+			<img src={Back} 
+			alt="arrow back" 
+			className="icon-back"
+			onClick={goBack} />
             <h1 className="quizTitle">Quiz</h1>
                 <form onSubmit={getQuiz}>
 				<div className="quiz__question">

@@ -1,10 +1,11 @@
 import React, { useState }  from "react";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import '../styles/Main.scss';
 import axios from 'axios';
+import NoAuthMain from '../Components/NoAuthMain/NoAuthMain.js';
+import MainAuth from '../Components/MainAuth/MainAuth.js';
 import Header from '../Components/Header/Header.js';
 import Footer from '../Components/Footer/Footer.js';
-import Card from '../Components/Cards/Card.js';
 const authToken = localStorage.getItem('userAuthToken');
 
 function Main (){
@@ -35,22 +36,8 @@ function Main (){
             fetchProfile={getProfile}
             />
             {profile ?
-            <div className="main">
-                <Card />
-            </div>:
-            <div className="mainNoAuth">
-                <h2>Welcome to MediNotes, please Login to view your personal Notes and Calendar. 
-                    If you're new to our site you may participate in a short quiz for 
-                    suggestions of medical practitioners for your personal health concerns.
-                </h2>
-                <Link to="/quiz" className="link">
-                    <div className="card-nav2">
-                        <h2 className="card-nav2-title">Quiz</h2>
-                        <div className="card-nav-image2"></div>
-                    </div>
-                </Link>
-            </div>
-            }
+            <MainAuth />:
+            <NoAuthMain />}
             <Footer />
             </>
         )
