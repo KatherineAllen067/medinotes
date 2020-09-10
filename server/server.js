@@ -64,11 +64,11 @@ app.post('/login', (req, res)=>{
     }
 });
 
+//endpoint for notes
 app.use('/notes', authorize, notes);
-//
 
 //endpoints for quiz
-// app.use("/quiz", quiz)
+app.use("/quiz", quiz)
 
 //user A 1234, user B 4321
 app.listen(8080, ()=>{

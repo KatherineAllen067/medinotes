@@ -35,6 +35,7 @@ function Notes(){
         .catch(err=>{ console.log('error with delete', err)});
     }
 
+    //says not auth and need to figure out how to catch id without match.params
     const publishNote=(e)=>{
         e.preventDefault();
         axios.post(`http://localhost:8080/notes/`,{ 

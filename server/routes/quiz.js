@@ -11,3 +11,5 @@ router.get("/", (req, res)=>{
             description:q.description
         })))
 });
+
+module.exports = router;

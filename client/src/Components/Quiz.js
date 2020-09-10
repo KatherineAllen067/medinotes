@@ -10,6 +10,8 @@ function Quiz (){
 	const getQuiz=(e)=>{
 		e.preventDefault();
 	}
+
+	//need to make a get request to backend and get id matching the input value
         return(
             <>
 			<Header />
