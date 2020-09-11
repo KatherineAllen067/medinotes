@@ -67,7 +67,7 @@ app.post('/login', (req, res)=>{
 //endpoint for notes
 app.use('/notes', authorize, notes);
 
-//endpoints for quiz
+//endpoints for quiz no auth needed
 app.use("/quiz", quiz)
 
 //user A 1234, user B 4321

@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import 
 { useHistory,
     useLocation
 } from 'react-router-dom';
+import ContentEditable from 'react-contenteditable'
 import Header from '../Components/Header/Header.js';
 import Footer from '../Components/Footer/Footer.js';
 import '../styles/Notes.scss';
@@ -17,22 +18,27 @@ const authToken = localStorage.getItem('userAuthToken');
 
 // problems 1. not authenticating a specfic user
 function Notes(){
-    const [ editting, setEditting ] = useState(false); 
+    const [ edit, setEdit ] = useState(false); 
     const [ notesData, setNotesData ] = useState([]);
+    // const text = useRef('')
     let history = useHistory();
     let location = useLocation();
 
 	function goBack(){
 		history.push("/")
-	}
+    }
+    
+    // const handleChange =(e)=>{
+    //     text.current= e.target.value;
+    // }  
 
     useEffect(()=>{
+        //sorts the data in the backend to get active users notes
         axios.get('http://localhost:8080/notes', {
             headers: { authorization: `Bearer ${authToken}` }
         })
         .then(res=>{
             console.log(res.data)
-            // var active = res.data.filter(user=> user.username === Emily)
             setNotesData(res.data)
         })
     }, [])
@@ -120,6 +126,7 @@ function Notes(){
                     <textarea 
                     type="text" 
                     name="note"
+                    className="note__add"
                     >
                     </textarea> 
                 <div className="old">
@@ -165,6 +172,7 @@ function Notes(){
                     date={note.date}
                     deleteFunction={deleteNote}
                     editFunction={editNote}
+                    // getText={handleChange}
                      />
                 </div>
                 )}
@@ -205,7 +213,10 @@ function NoteItem(props){
                 <span className="note__cell">{props.date}</span>
             </div>
             <div>
-                <p className="note__blurb">{props.note}</p>
+                <ContentEditable 
+                className="note__blurb"
+                html={props.note}
+                />
             </div>
         </div>
         </>
