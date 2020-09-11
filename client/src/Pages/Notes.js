@@ -1,8 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import 
-{ useHistory,
-    useLocation
-} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import ContentEditable from 'react-contenteditable'
 import Header from '../Components/Header/Header.js';
 import Footer from '../Components/Footer/Footer.js';
@@ -14,28 +11,27 @@ import Search from '../styles/assets/icons/search-icon.png';
 import Back from '../styles/assets/icons/back-icon.png';
 import axios from 'axios';
 import { uuid } from 'uuidv4';
-const authToken = localStorage.getItem('userAuthToken');
 
-// problems 1. not authenticating a specfic user
+const authToken=() => localStorage.getItem('userAuthToken');
+
 function Notes(){
-    const [ edit, setEdit ] = useState(false); 
+    // const [ edit, setEdit ] = useState(false); 
     const [ notesData, setNotesData ] = useState([]);
-    // const text = useRef('')
+    const text = useRef('')
     let history = useHistory();
-    let location = useLocation();
 
 	function goBack(){
 		history.push("/")
     }
     
-    // const handleChange =(e)=>{
-    //     text.current= e.target.value;
-    // }  
+    const handleChange =(e)=>{
+        text.current= e.target.value;
+    }  
 
     useEffect(()=>{
         //sorts the data in the backend to get active users notes
         axios.get('http://localhost:8080/notes', {
-            headers: { authorization: `Bearer ${authToken}` }
+            headers: { authorization: `Bearer ${authToken()}` }
         })
         .then(res=>{
             console.log(res.data)
@@ -46,7 +42,7 @@ function Notes(){
     //handling a note delete
     const deleteNote=(id)=>{
         axios.delete(`http://localhost:8080/notes/${id}`,{
-            headers: { authorization: `Bearer ${authToken}`}
+            headers: { authorization: `Bearer ${authToken()}`}
         })
         // console.log(location.pathname)
         .then(res=>{
@@ -63,7 +59,7 @@ function Notes(){
             note: e.target.note.value,
             practitioner: e.target.practitioner.value,
         },
-        {headers: { authorization: `Bearer ${authToken}`}
+        {headers: { authorization: `Bearer ${authToken()}`}
         })
         .then(post=>{
             console.log(post.data);
@@ -74,14 +70,18 @@ function Notes(){
         });
     };
 
-    //handling a note edit
-    const editNote=()=>{
-        axios.put(`http://localhost:8080${location.pathname}`,{
-            headers: { authorization: `Bearer ${authToken}`}
+    //handling a note edit look back the onBlur - attach teh ref to the html prop of contenteditable on handler don't conseole log put the handler 
+    const editNote=(id)=>{
+        let newNote = text.current;
+        console.log('new note is: ', newNote);
+        axios.put(`http://localhost:8080/notes/${id}`,{
+                note: newNote
+        },{
+            headers: { authorization: `Bearer ${authToken()}`}
         })
         .then(edit=>{
             console.log(edit.data)
-            // setNotesData()
+            setNotesData(edit.data)
         })
         .catch(err=>{
             console.log('error with edit request', err)
@@ -172,7 +172,7 @@ function Notes(){
                     date={note.date}
                     deleteFunction={deleteNote}
                     editFunction={editNote}
-                    // getText={handleChange}
+                    changeHandler={handleChange}
                      />
                 </div>
                 )}
@@ -187,7 +187,7 @@ function Notes(){
 function NoteItem(props){
     return(
         <>
-        <div className="note__row" >
+        <div className="note__row">
             <div className="note__row-btn">
             <button  
             className="notes__btn"  
@@ -213,9 +213,12 @@ function NoteItem(props){
                 <span className="note__cell">{props.date}</span>
             </div>
             <div>
+                {/* library on change to listen to change */}
                 <ContentEditable 
                 className="note__blurb"
                 html={props.note}
+                onBlur={()=>{props.editFunction(props.id)}}
+                onChange={props.changeHandler}
                 />
             </div>
         </div>

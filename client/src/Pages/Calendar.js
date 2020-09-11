@@ -14,7 +14,7 @@ function CalendarPage(){
     let history = useHistory();
 
 	function goBack(){
-		history.push("/home")
+		history.push("/")
 	}
  
         return(

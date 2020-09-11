@@ -21,6 +21,7 @@ const authorize =(req, res, next)=>{
     const authToken = req.headers.authorization.split(' ')[1];
     jwt.verify(authToken, process.env.JWT_SECRET, (err, decoded)=>{
         if(err){
+            console.log(authToken, process.env.JWT_SECRET)
             console.log('there is an error with verify')
             return res.status(401).json({sucess:false, message:'token is invalid'});
         }

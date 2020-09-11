@@ -32,15 +32,9 @@ router.post("/", (req, res)=>{
 router.put("/:id", (req, res)=>{
     let activeUser = req.jwtDecoded.username;
     console.log('req body', req.body);
-    editted= notes.find(note=> note.id == req.params.id);
-    let username = req.body.name;
-    let practitioner = req.body.practitioner;
+    edit= notes.find(note=> note.id == req.params.id);
     let note = req.body.note;
-    let date = req.body.date;
-    eddited.username = username;
-    edditted.practitioner = practitioner;
-    edditted.note = note;
-    eddited.date= date;
+    edit.note = note;
     res.status(200).json(
         notes.filter(n=> {
             return n.username === activeUser
