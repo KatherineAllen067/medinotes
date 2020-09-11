@@ -26,7 +26,7 @@ function Quiz (){
             <div className="quiz">
 			<img src={Back} 
 			alt="arrow back" 
-			className="icon-back"
+			className="icon-back__quiz"
 			onClick={goBack} />
             <h1 className="quizTitle">Quiz</h1>
                 <form onSubmit={getQuiz}>
@@ -61,14 +61,14 @@ function Quiz (){
 						<input
 						type="radio"
 						className="question1"
-						name="question1"
+						name="question2"
 						value="525"
 						></input>
 						<span className="answer">No</span>
 						<input
 						type="radio"
 						className="question1"
-						name="question1"
+						name="question2"
 						value="0"
 						></input>
                     </div> 
@@ -82,14 +82,14 @@ function Quiz (){
 						<input
 						type="radio"
 						className="question1"
-						name="question1"
+						name="question3"
 						value="225"
 						></input>
 						<span className="answer">No</span>
 						<input
 						type="radio"
 						className="question1"
-						name="question1"
+						name="question3"
 						value="0"
 						></input>
                     </div>
@@ -103,14 +103,14 @@ function Quiz (){
 						<input
 						type="radio"
 						className="question1"
-						name="question1"
+						name="question4"
 						value="325"
 						></input>
 						<span className="answer">No</span>
 						<input
 						type="radio"
 						className="question1"
-						name="question1"
+						name="question4"
 						value="0"
 						></input>
                     </div>
@@ -124,14 +124,14 @@ function Quiz (){
 						<input
 						type="radio"
 						className="question1"
-						name="question1"
+						name="question5"
 						value="425"
 						></input>
 						<span className="answer">No</span>
 						<input
 						type="radio"
 						className="question1"
-						name="question1"
+						name="question5"
 						value="0"
 						></input>
                     </div>
@@ -165,10 +165,7 @@ function Quiz (){
             </>
         )
 }
-//five questions yes or no about health concerns
-//each answer will have a id
-//the id will be associated with a type of practitioner 
-//if you pick yes to a question there will be two types of practitioners give as result
+
 //skin conditions(125)
 // muscle and joint pain(525)
 // gastral intestinal(225)

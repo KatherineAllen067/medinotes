@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+// import { Redirect } from 'react-router-dom';
 import '../../styles/Login.scss';
 import LogIN from '../../styles/assets/icons/login-icon.png';
 import LogOUT from '../../styles/assets/icons/logout-icon-white.png';
@@ -37,6 +38,7 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
         {
          loggedIN === false ?
             (
+                // <Redirect to="/"></Redirect>
              <div className="log-box">
                  <form onSubmit={handleLogin}>
                      <div className="form-row">
