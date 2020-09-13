@@ -14,12 +14,8 @@ function App() {
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Main} />
-      {/* <Route path="/" component={NoAuth}/>  */}
-      {/* <Route path="/home" component={Auth}/> */}
       <Route exact path="/notes" component={Notes}/>
-      <Route exact path="/notes/:id" component={Notes}/>
       <Route exact path="/quiz" component={Quiz} />
-      <Route exact path="/quiz/:resultid" component={Quiz}/>
       <Route exact path="/calendar" component={CalendarPage}/>
     </Switch>
   </BrowserRouter>

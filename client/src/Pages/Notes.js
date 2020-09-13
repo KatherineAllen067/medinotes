@@ -3,11 +3,11 @@ import { useHistory } from 'react-router-dom';
 import ContentEditable from 'react-contenteditable'
 import Header from '../Components/Header/Header.js';
 import Footer from '../Components/Footer/Footer.js';
+import Searchbar from '../Components/Search/Search.js';
 import '../styles/Notes.scss';
 import Add from '../styles/assets/icons/add-note.png';
 import Edit from '../styles/assets/icons/edit-icon.png';
 import Delete from '../styles/assets/icons/delete-icon.png';
-import Search from '../styles/assets/icons/search-icon.png';
 import Back from '../styles/assets/icons/back-icon.png';
 import axios from 'axios';
 import { uuid } from 'uuidv4';
@@ -87,50 +87,6 @@ function Notes(){
             console.log('error with edit request', err)
         });
     }
- 
-//show search results 
-    const findNote = (e)=>{
-        e.preventDefault();
-        let word = e.target.search.value.toString();
-        console.log(word)
-        axios.get('http://localhost:8080/notes', {
-            headers: { authorization: `Bearer ${authToken()}` }
-        })
-        //check the casing and both the WORD and the ARRAY 
-        //refactor into a function instead of chaining 
-        .then(sear=>{
-            console.log(sear.data)
-            sear.data.find(s=>{
-                if(s.note.split(' ').includes(word) && s.practitioner.split(' ').includes(word)){
-                    console.log('note & doctor contains word')
-                    return setResult([...result, {
-                        id: uuid(),
-                        practitioner: s.practitioner,
-                        note: s.note,
-                        date: s.date
-                    }]);  
-                }
-                else if(s.note.split(' ').includes(word)){
-                    console.log('contains word in note')
-                    return setResult([...result,{
-                        id: uuid(),
-                        practitioner: s.practitioner,
-                        note: s.note,
-                        date: s.date
-                    }]);
-                }else if(s.practitioner.split(' ').includes(word)){
-                    console.log('contains word in doctor title')
-                    return setResult([...result,{
-                        id: uuid(),
-                        practitioner: s.practitioner,
-                        note: s.note,
-                        date: s.date
-                    }]);
-                }else{ return console.log('no note found'); } 
-            })
-            console.log(result)
-        })
-    }
 
     return(
     <>
@@ -141,87 +97,52 @@ function Notes(){
             className="icon-back__note"
             onClick={goBack} 
             />
+       <Searchbar />
         <div className="notes">
             <form onSubmit={publishNote}>
                 <div className="notes__bottom">
                     <h3 className="notes__header">
                     Create a Note</h3>
-                    <button 
-                    type="submit" 
-                    className="notes__btn">
-                    <img src={Add}
-                    alt="add icon"
-                    className="icon-add"
-                    />
-                    </button>
                 </div>             
                 <div className="notes__new">
-                    <label>
-                    Practitioner
-                    </label>
-                    <input type="text"
-                    name="practitioner" 
-                    placeholder="Name or type is okay..."
-                    className="notes__input"
-                    >
-                    </input>
-                    <label>
-                    Note
-                    </label>
-                    <textarea 
-                    type="text" 
-                    name="note"
-                    className="note__add"
-                    >
-                    </textarea> 
+                    <div className="notes__new--top">
+                        <label>
+                        Practitioner
+                        </label>
+                        <input type="text"
+                        name="practitioner" 
+                        placeholder="Name or type is okay..."
+                        className="notes__input"
+                        >
+                        </input>
+                        <label>
+                        Note
+                        </label>
+                        <textarea 
+                        type="text" 
+                        name="note"
+                        className="note__add"
+                        >
+                        </textarea> 
+                    </div>
+                    <div className="notes__btn--add">
+                        <button 
+                        type="submit" 
+                        className="notes__btn">
+                        <img src={Add}
+                        alt="add icon"
+                        className="icon-add"
+                        />
+                        </button>
+                    </div>
                 </div>   
             </form> 
-            <div className="old">
-                <div className="notes__search">
-                    <div className="notes__bottom--1">
-                        <h3 className="notes__header">
-                        Find a Note
-                        </h3>
-                        <form onSubmit={findNote}>
-                            <button 
-                            type="submit"
-                            className="notes__btn"
-                            >
-                            <img 
-                            src={Search}
-                            alt="search-icon"
-                            className="icon-search"
-                            />
-                            </button>
-                            <label>
-                            Search
-                            </label>
-                            <input 
-                            type="text" 
-                            name="search" 
-                            placeholder="Search by keywords..." 
-                            className="notes__input"
-                            >
-                            </input>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            { result ? 
-            <div>
-            {result.map(r=>
-                <div className="result"key={uuid()}>
-                    <h4>{r.practitioner}</h4>
-                    <h4>{r.date}</h4>    
-                    <h4>{r.note}</h4>    
-                </div>)}
-            </div>:
-            <>
-            </>}
         </div>
 
         <div className="note2">
-            <h3>Your Notes</h3>
+            <h3 className="notes__header">
+            Your Notes
+            </h3>
                 <div className="note2__column">
                 { notesData.map(note=>
                 <div className="note">
@@ -249,26 +170,6 @@ function NoteItem(props){
     return(
         <>
         <div className="note__row">
-            <div className="note__row-btn">
-            <button  
-            className="notes__btn"  
-            onClick={()=>{props.deleteFunction(props.id)}}>
-            <img src={Delete}
-            alt="delete icon"
-            className="icon-delete"
-            />
-            </button>
-            <button
-            className="notes__btn"
-            >
-            <img 
-            src={Edit}
-            alt="edit-icon"
-            className="icon-edit"
-            onClick={props.editFunction}
-            />
-            </button>
-            </div>
             <div className="note__details">
                 <span className="note__cell">{props.practitioner}</span>
                 <span className="note__cell">{props.date}</span>
@@ -281,6 +182,16 @@ function NoteItem(props){
                 onBlur={()=>{props.editFunction(props.id)}}
                 onChange={props.changeHandler}
                 />
+            </div>
+            <div className="note__row-btn">
+            <button  
+            className="notes__btn"  
+            onClick={()=>{props.deleteFunction(props.id)}}>
+            <img src={Delete}
+            alt="delete icon"
+            className="icon-delete"
+            />
+            </button>
             </div>
         </div>
         </>

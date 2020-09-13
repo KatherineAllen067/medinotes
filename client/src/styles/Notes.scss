@@ -8,9 +8,9 @@
 }
 
 .note__add{
-    width:18rem;
+    width:19rem;
     height:14rem;
-    border: 1px solid navy;
+    border: 1px solid $lines;
     border-radius: 1.5rem;
     resize:none;
 }
@@ -20,27 +20,29 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     &__input{
         width:18rem;
-        border: 1px solid navy;
+        border: 1px solid $lines;
         border-radius: 1.5rem;
     }
     &__new{
         display:flex;
-        flex-direction: column;  
+        align-items: flex-end;
+        &--top{
+            display:flex;
+            flex-direction: column; 
+        }  
     }
     &__search{
         display:flex;
         flex-direction: column;
     }
     &__btn{
-        background-color:#ffffff;
+        background-color:$bg;
         border:none;
     }
     &__bottom{
         display: flex;
-        justify-content: space-evenly;
         &--1{
             display: flex;
             justify-content: space-evenly; 
@@ -55,23 +57,32 @@
     width:30%;
     display:flex;
     flex-direction: column;
-    justify-content: center;
-    align-items:center;
     &__column{
-        width:600px;
+        width:480px;
         height:750px;
         overflow:scroll;
     }
 }
 
-.old{
+.search{
     display:flex;
     flex-direction: column;
+    &__form{
+        display:flex;
+        align-items:center;
+    }
+    &__result{
+        width:340px;
+        display:flex;
+        flex-direction: column;
+        padding:1rem 0;
+    }
 }
 
 .noteBox{
     width:100%;
     height:850px;
+    background-color:$bg;
     display:flex;
     justify-content: space-around;
 }
@@ -86,16 +97,13 @@
         padding:0.5rem;
         &-btn{
             display:flex;
-            justify-content: space-between;
+            justify-content: flex-end;
+            border-bottom: 1px solid $lines;
         }
     }
     &__details{
         display:flex;
         justify-content: space-between;
-    }
-    &__link{
-        text-decoration:none;
-        color:black;
     }
 }
 

@@ -9,7 +9,7 @@ function Header({ profile, setProfile, name, setName, login, setLogin, fetchProf
     return(
         <>
         <div className="header">
-            <Link to="/">
+            <Link to="/" className="header__link">
                 <h1 className="header-title">MediNotes
                 <img src={NotePad} alt="pencil" className="header-icon"/>
                 </h1>
