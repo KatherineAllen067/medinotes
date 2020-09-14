@@ -4,9 +4,8 @@ import ContentEditable from 'react-contenteditable'
 import Header from '../Components/Header/Header.js';
 import Footer from '../Components/Footer/Footer.js';
 import Searchbar from '../Components/Search/Search.js';
+import Create from '../Components/Create/Create.js';
 import '../styles/Notes.scss';
-import Add from '../styles/assets/icons/add-note.png';
-import Edit from '../styles/assets/icons/edit-icon.png';
 import Delete from '../styles/assets/icons/delete-icon.png';
 import Back from '../styles/assets/icons/back-icon.png';
 import axios from 'axios';
@@ -15,7 +14,6 @@ import { uuid } from 'uuidv4';
 const authToken=() => localStorage.getItem('userAuthToken');
 
 function Notes(){
-    const [ result, setResult ] = useState([]); 
     const [ notesData, setNotesData ] = useState([]);
     const text = useRef('')
     let history = useHistory();
@@ -52,24 +50,6 @@ function Notes(){
         .catch(err=>{ console.log('error with delete', err)});
     }
 
-    //creating a new note
-    const publishNote=(e)=>{
-        e.preventDefault();
-        axios.post('http://localhost:8080/notes/',{
-            note: e.target.note.value,
-            practitioner: e.target.practitioner.value,
-        },
-        {headers: { authorization: `Bearer ${authToken()}`}
-        })
-        .then(post=>{
-            console.log(post.data);
-            setNotesData(post.data);
-        })
-        .catch(error =>{
-            console.log('error with post', error)
-        });
-    };
-
     //handling a note edit
     const editNote=(id)=>{
         let newNote = text.current;
@@ -92,59 +72,24 @@ function Notes(){
     <>
     <Header />
     <div className="noteBox">
+        <div className="note__nav">
             <img src={Back}
             alt="arrow back"
             className="icon-back__note"
             onClick={goBack} 
             />
-       <Searchbar />
-        <div className="notes">
-            <form onSubmit={publishNote}>
-                <div className="notes__bottom">
-                    <h3 className="notes__header">
-                    Create a Note</h3>
-                </div>             
-                <div className="notes__new">
-                    <div className="notes__new--top">
-                        <label>
-                        Practitioner
-                        </label>
-                        <input type="text"
-                        name="practitioner" 
-                        placeholder="Name or type is okay..."
-                        className="notes__input"
-                        >
-                        </input>
-                        <label>
-                        Note
-                        </label>
-                        <textarea 
-                        type="text" 
-                        name="note"
-                        className="note__add"
-                        >
-                        </textarea> 
-                    </div>
-                    <div className="notes__btn--add">
-                        <button 
-                        type="submit" 
-                        className="notes__btn">
-                        <img src={Add}
-                        alt="add icon"
-                        className="icon-add"
-                        />
-                        </button>
-                    </div>
-                </div>   
-            </form> 
         </div>
-
+    <div className="noteBox__2">
+        <div className="search__create">
+            <Searchbar />
+            <Create 
+            notes={notesData}
+            setNote={setNotesData}
+            />
+        </div>
         <div className="note2">
-            <h3 className="notes__header">
-            Your Notes
-            </h3>
-                <div className="note2__column">
-                { notesData.map(note=>
+            <div className="note2__column">
+            { notesData.map(note=>
                 <div className="note">
                     <NoteItem
                     key={uuid()}
@@ -157,8 +102,9 @@ function Notes(){
                     changeHandler={handleChange}
                      />
                 </div>
-                )}
-                </div>
+            )}
+            </div>
+            </div>
         </div>
     </div>
     <Footer />
@@ -198,12 +144,6 @@ function NoteItem(props){
     )
 }
 
-// function ResultItem(){
-//     return(
-//         <>
-//         </>
-//     )
-// }
 //https://www.freecodecamp.org/news/reactjs-implement-drag-and-drop-feature-without-using-external-libraries-ad8994429f1a/
 
 export default Notes;

@@ -1,11 +1,13 @@
 import React from "react";
 import axios from 'axios';
-// import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import '../../styles/Login.scss';
 import LogIN from '../../styles/assets/icons/login-icon.png';
 import LogOUT from '../../styles/assets/icons/logout-icon-white.png';
 
 function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
+    let history = useHistory()
+   
  //handle submit to login
  const handleLogin =e=>{
      e.preventDefault();
@@ -24,21 +26,22 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
         .catch(error=>console.log('Login error', error));
     }
 
+    function goBack(){
+      history.push("/")
+    }
     const handleLogout = () => {
         localStorage.removeItem('clientAuthToken');
         setLoggedIN(false);
+        goBack();
       }
-
  //when componen mounts is there a token set login state-- 
  //login from here, but state is set state higher in the tree 
-
  //conditional render show username and welcome and nav cards 
     return(
         <>
         {
          loggedIN === false ?
             (
-                // <Redirect to="/"></Redirect>
              <div className="log-box">
                  <form onSubmit={handleLogin}>
                      <div className="form-row">

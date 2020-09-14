@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, { useState } from "react";
 import Search from '../../styles/assets/icons/search-icon.png';
 import axios from 'axios';
 import { uuid } from 'uuidv4';
@@ -82,7 +82,7 @@ function Searchbar(){
                 </form>
             </div>
             { result ? 
-            <div>
+            <div className="search__note">
             {result.map(r=>
                 <div className="search__result"key={uuid()}>
                     <div className="note__details">

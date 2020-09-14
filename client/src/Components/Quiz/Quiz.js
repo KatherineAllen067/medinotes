@@ -17,28 +17,27 @@ function Quiz (){
 		history.push("/")
 	}
 
-	const getQuiz=(e)=>{
-		e.preventDefault();
-		axios.get('http://localhost:8080/quiz')
-		.then(res=>{
-			res.data.find(a=>{
-				if(a.id === questions){
-					return setAnswers({
-						practitioner: a.practitioner,
-						description: a.description
-					})
-				}
-			})
-				console.log(answers)
-				console.log(questions)
-		})
-		.catch(err=>{console.log('error with get quiz', err)});
-		// e.form.reset();
-	}
-//if there are questions loop through the ids and get the id from the backend to show answer
-//also need to check that each answer has been picked before submit
-//take values and map through match the values to the array and pull the values into an answer column 
-//need to make a get request to backend and get id matching the input value
+	// const getQuiz=(e)=>{
+	// 	e.preventDefault();
+	// 	axios.get('http://localhost:8080/quiz')
+	// 	.then(res=>{
+	// 		console.log(res.data)
+	// 		// find(a=>{
+	// 			// if(a.id === questions){
+	// 			// 	return setAnswers({
+	// 			// 		practitioner: a.practitioner,
+	// 			// 		description: a.description
+	// 			// 	})
+	// 			// }
+	// 	//if question has a value then pull answer 
+	// 	//if question true/has value make get request for the question
+	// 	//make on get for complete quiz which has all answers 
+	// 		})
+	// 			console.log(answers)
+	// 			console.log(questions)
+	// 	})
+	// 	.catch(err=>{console.log('error with get quiz', err)});
+	// }
         return(
             <>
 			<Header />
@@ -49,7 +48,7 @@ function Quiz (){
 			className="icon-back__quiz"
 			onClick={goBack} />
             <h1 className="quizTitle">Quiz</h1>
-                <form onSubmit={getQuiz} >
+                <form  >
 				<div className="quiz__question">
 					<label
 					className="quiz__question--label"
@@ -63,7 +62,6 @@ function Quiz (){
 						name="question1"
 						value="125"
 						onChange={e=>setQuestions([...questions, e.target.value])}
-						// checked={setAnswers === true}
 						></input>
 						<span className="answer">No</span>
 						<input
