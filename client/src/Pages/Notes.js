@@ -83,7 +83,7 @@ function Notes(){
             <Searchbar />
             <Create 
             notes={notesData}
-            setNote={setNotesData}
+            setNotes={setNotesData}
             />
         </div>
         <div className="note__bottom">

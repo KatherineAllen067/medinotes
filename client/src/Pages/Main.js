@@ -7,7 +7,7 @@ import MainAuth from '../Components/MainAuth/MainAuth.js';
 import Header from '../Components/Header/Header.js';
 import Footer from '../Components/Footer/Footer.js';
 
-const authToken = () =>localStorage.getItem('userAuthToken')  
+// const authToken = () =>localStorage.getItem('userAuthToken')  
 
 function Main (){
     const [ login, setLogin ] = useState(false)

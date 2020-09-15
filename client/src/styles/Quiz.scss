@@ -42,13 +42,13 @@
 
 .quiz__question{
     height:5rem;
+    display:flex;
     &--label{
         font-family:$medium;
         padding:1rem;
     }
     &--radio{
         padding:1rem 0;
-        padding-left:4rem;
     }
 }
 

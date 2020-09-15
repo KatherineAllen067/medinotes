@@ -10,10 +10,9 @@ import '../../styles/Quiz.scss';
 import { uuid } from 'uuidv4';
 
 function Quiz (){
-	//setting the id of the question they clicked yes to 
 	const [ questions, setQuestions ] = useState([]);
 	const [ result, setResult ]= useState(''); 
-	const [ answers, setAnswers ] = useState([]);
+	const [ answers, setAnswers ] = useState('');
 	let history = useHistory();
 
 	function goBack(){
@@ -25,24 +24,21 @@ function Quiz (){
 		.then(res=>{
 			console.log(res.data)
 			setQuestions(res.data)
-			// setAnswers([...answers, 
-			// 	res.data.filter(a=> (a.s === result)
-			// 		return
-			// 		)
-			// ])
+
+					// practitioner1= res.data.answers.practitioner)
+					// description: a.answers.description,
+					// practitioner2: a.answers.practitioner2,
+					// description2: a.answers.description2
+
+			
 		})
-		// console.log( 'results are :', result, 'questions are: ', questions, 'answers are :', answers)
 	}, [result])
 	
 	const getResult=(id)=>{
-		setResult(id)
-		console.log(result)
+		
 	}
 	
-	const getQuiz= (e)=>{
-		//send array of question id that are answered yes
-		e.preventDefault();
-	}
+
 
         return(
 			<>
@@ -56,15 +52,14 @@ function Quiz (){
 			</div>
 			<div className="quiz__result_quiz"> 
 				<div className="quiz">
-					<h1 className="quizTitle">Quiz</h1>
-					<form onSubmit={getQuiz} >
+					<h1 className="quizTitle">Choose a Health Concern to see Suggestions</h1>
+					<form>
 						{ questions.map(q=>
 						<div className="quiz__question" key={uuid()}>
 							<label className="quiz__question--label">
 							{q.question}
 							</label>
 							<div className="quiz__question--radio">
-								<span className="answer">Yes</span>
 								<input
 								type="radio"
 								className="quiz__question--radio-btn"
@@ -72,25 +67,20 @@ function Quiz (){
 								value={q.id}
 								onChange={()=>getResult(q.id)}
 								></input>
-								<span className="answer">No</span>
-								<input
-								type="radio"
-								className="question1"
-								name={q.id}
-								value="0"
-								></input>
 							</div> 
 						</div>
 						)}
-						<button type="submit" className="quiz-btn">
-							<img src={Send} alt="page with arrow" className="send-icon"/>
-						</button>	
-						<button type="submit" className="quiz-btn" onClick={goBack}>
-							<img src={Delete} alt="trash can" className="delete-icon"/>
-						</button>
 					</form>
 				</div>
-				<div className="quiz__results"></div>
+				<div className="quiz__results">
+					{questions.map(a=>{
+						return (
+						<div>
+							<span>{a.answers.practitioner}</span>
+						</div>
+						)
+					})}
+				</div>
 			</div>
 			</div>
 			<Footer />
