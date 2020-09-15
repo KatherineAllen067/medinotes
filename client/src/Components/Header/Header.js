@@ -1,19 +1,31 @@
-import React, {Component} from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import '../../styles/Header.scss';
-import Pencil from '../../styles/assets/icons/output-onlinepngtools.png';
+import NotePad from '../../styles/assets/icons/notes-icon.png';
+import Login from '../Login/Login.js';
 
-class Header extends Component{
-    render(){
-        return(
-            <>
-            <div className="header">
-                <h1 className="header-title">MediNotes</h1>
-                <img src={Pencil} alt="pencil" className="header-icon"/>
-            </div>
-            
-            </>
-        )
-    }
+function Header({ profile, setProfile, name, setName, login, setLogin, fetchProfile }){
+
+    return(
+        <>
+        <div className="header">
+            <Link to="/" className="header__link">
+                <h1 className="header-title">MediNotes
+                <img src={NotePad} alt="pencil" className="header-icon"/>
+                </h1>
+            </Link>
+        <Login 
+        user={profile} 
+        setUser={setProfile} 
+        accessProfile={fetchProfile}
+        userName={name}
+        setuserName={setName}
+        loggedIN={login}
+        setLoggedIN={setLogin}      
+        />
+        </div>
+        </>
+    )
 }
 
 

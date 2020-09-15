@@ -3,59 +3,60 @@
 @import './fonts';
 
 .log-title{
-    font-family:$title;
+    font-family:$medium;
+    font-size:1.5rem;
+    color:$white;
     display: flex;
-    justify-content: center;
-    
-    
+    justify-content: $middle; 
+    padding:0.5rem;  
 }
+
 .log-box{
     display:flex;
-    flex-direction:column;
-    padding:2rem;
-    align-items: center;
-}
-.log-box2{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding:1.5rem;
+    align-items: $middle;
 }
 
 .log-label{
+    color:$white;
     font-family:$medium;
     padding:0.5rem;
 }
-.log-box3{
-    width:500px;
-    display: flex;
-    justify-content: space-evenly;
-}
 
 input{
-    width:13rem;
-    height:2rem;
-    border-radius: 2rem;
-    outline:navy;
+    width:8rem;
+    height:1rem;
+    border-radius: 1.5rem;
+    outline:$lines;
     padding:0.5rem;
-    // &:active{
-    //     border:navy;
-    // }
     &::placeholder{
-        color:navy;
+        color:$lines;
         font-family:$medium;
         padding-left:0.5rem;
     }
 }
+
 .log-button{
     font-family:$light;
-    width:13rem;
-    height:2.5rem;
-    color:#ffffff;
-    background-color:navy;
-    border-radius:2rem;
+    width:10rem;
+    height:1.5rem;
+    color:$white;
+    background-color:$header;
     border:none;
-    &:hover{
-        border-color:white;
-    }
+    display: flex;
+    align-items: $middle;
+}
+
+.button_icon{
+    width:2rem;
+}
+
+.form-row{
+    display:flex;
+    width:540px;
+}
+
+.login{
+    width: 350px;
+    display: flex;
+    align-items: $middle;
 }

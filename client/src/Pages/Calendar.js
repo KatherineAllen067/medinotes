@@ -1,33 +1,37 @@
-import React, {Component} from "react";
+import React from "react";
+import { useHistory } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import "../styles/Calendar.scss";
-
+import Back from "../styles/assets/icons/back-icon.png";
 
 //https://www.npmjs.com/package/react-calendar calendat info page npm
 
 
-class CalendarPage extends Component{
-    // state={
-    //     value:Date.now(),
-    // }
+function CalendarPage(){
+    let history = useHistory();
 
-    // onChange = value =>{
-    //     this.setState({ value });
-    // }
-
-    render(){
-
+	function goBack(){
+		history.push("/home")
+	}
+ 
         return(
             <>
-            <h1 className="calTitle">Calendar</h1>
-            <div className="calBox">
-                <Calendar className="cal-style"
-                defaultView="month"
-                />
+            <div className="calendar">
+                <div className="calendar__top">
+                    <img src={Back}
+                    alt="arrow back"
+                    className="icon__2"
+                    onClick={goBack} />
+                    <h1 className="calendar__header">Your Calendar</h1>
+                </div>
+                <div className="calendar__box">
+                    <Calendar className="cal-style"
+                    defaultView="month"
+                    />
+                </div>
             </div>
             </>
         )
-    }
 }
 
 export default CalendarPage;

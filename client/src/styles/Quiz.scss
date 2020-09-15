@@ -1,8 +1,67 @@
-@import './partials';
-@import './mixins';
-@import './fonts';
+@import './_partials';
+@import './_mixins';
+@import './_fonts';
+
+.quiz__container{
+    width:100%;
+    padding:1rem;
+    box-sizing: border-box;
+    background-color: $bg;
+}
 
 .quizTitle{
     margin:0;
     padding:2rem;
+}
+
+.quiz__result_quiz{
+    display:flex;
+    padding-bottom:0.5rem;
+}
+
+.quiz{
+    width: 470px;
+    margin: 0 auto;
+    &-btn{
+        background-color:$bg;
+        border:none;
+        padding: 0 2rem;
+    }
+    &__bottom{
+        display:flex;
+        justify-content: flex-end;
+    }
+    &__results{
+        width: 400px;
+        height: 300px
+    }
+    &__nav{
+        padding:1rem;
+    }
+}
+
+.quiz__question{
+    height:5rem;
+    display:flex;
+    &--label{
+        font-family:$medium;
+        padding:1rem;
+    }
+    &--radio{
+        padding:1rem 0;
+    }
+}
+
+.answer{
+    font-family:$medium;
+    font-weight:bold;
+}
+
+.send-icon{
+    width:2rem;
+}
+
+.icon-back__quiz{
+    width:2.5rem;
+    height:2.5rem;
 }

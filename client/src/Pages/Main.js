@@ -1,21 +1,42 @@
-import React, {Component} from "react";
+import React, { useState }  from "react";
 import '../styles/Main.scss';
-import Login from '../Components/Login/Login.js';
-import Card from '../Components/Cards/Card.js';
+import axios from 'axios';
 
-class Main extends Component{
-    render(){
+// const authToken = () =>localStorage.getItem('userAuthToken')  
+
+function Main (){
+    const [ login, setLogin ] = useState(false)
+    const [ name, setName ] = useState('')
+    const [ profile, setProfile ] = useState(null)
+    
+    const getProfile=()=>{
+        axios.get('http://localhost:8080/notes', {
+            headers: { authorization: `Bearer ${authToken()}` }
+        })
+        .then(res=>{
+            console.log('profile response', res.data);
+            setProfile(res.data) 
+            setLogin(true)
+        })
+        .catch(err=> console.log('profile error', err));
+     }
         return(
             <>
-            <div className="main">
-                <Login />
-                <Card />
-            </div>
+            <Header
+            profile={profile}
+            setProfile={setProfile}
+            name={name}
+            setName={setName}
+            login={login}
+            setLogin={setLogin}
+            fetchProfile={getProfile}
+            />
+            {profile ?
+            <MainAuth />:
+            <NoAuthMain />}
+            <Footer />
             </>
         )
-    }
 }
-
-
 
 export default Main;

@@ -1,36 +1,125 @@
-@import './partials';
-@import './mixins';
-@import './fonts';
+@import './_partials';
+@import './_mixins';
+@import './_fonts';
 
-.noteTitle{
-    margin:0;
-    padding:2rem;
-}
-
-textarea{
-    width:18rem;
-    height:14rem;
-    border: 1px solid navy;
-    border-radius: 2rem;
-    resize:none;
+.note__container{
+    width:100%;
+    background-color:$bg;
+    @include flex-column;
 }
 
 .note{
-    display:flex;
-    flex-direction: column;
+    @include flex-column;
+    justify-content: $between;
+    padding:0.5rem;
+    &__details{
+        @include flex-between;
+    }
+    &__btn{
+        display:flex;
+        justify-content: flex-end;
+        border-bottom: 1px solid $lines;
+        &--1{
+            background-color:$bg;
+            border:none; 
+        }
+    }
+    &__cell{
+        font-family: $title;
+        font-weight: bold;
+        padding:0.5rem;
+    }
+    &__blurb{
+        font-family:$medium;
+        text-align: left;
+        width: 55rem;
+        padding:0.5rem;
+    }
+    &__top{
+        display: flex;
+        justify-content: $around;
+        &__nav{
+            padding:1rem;
+            height:1rem;
+        }
+        &__arrow{
+            width:2.5rem;
+            height:2.5rem;
+        }
+    }
+    &__bottom{
+        width:100%;
+        @include flex-column;
+        align-items: $middle;
+        &__column{
+            width:80%;
+            height:750px;
+            overflow:scroll;
+        }
+    }
 }
 
-.new{
-    display:flex;
-    flex-direction: column;  
+.icon__1{
+    width:1.5rem;
+    height:1.5rem;
 }
 
-.old{
-    display:flex;
-    flex-direction: column;
+.icon__2{
+    width:2rem;
+    height:2rem;
 }
 
-.noteBox{
-    display:flex;
-    justify-content: center;
+.create{
+    width: 30rem;
+    @include flex-column;
+    align-items: flex-start;
+    &__header{
+        font-family:$medium;
+    }
+    &__new{
+        display:flex;
+        align-items: flex-end;
+        &--top{
+            @include flex-column;
+        }  
+    }
+    &__label{
+        padding:0.5rem;
+    }
+    &__btn{
+        background-color: $bg;
+        border:none; 
+    }
+    &__input{
+        width:18rem;
+        border: 1px solid $lines;
+        border-radius: 1.5rem;
+    }
+    &__add{
+        width:19rem;
+        height:14rem;
+        border: 1px solid $lines;
+        border-radius: 1.5rem;
+        resize:none;
+    }
 }
+
+.search{
+    @include flex-column;
+    &__form{
+        display:flex;
+        align-items:$middle;
+    }
+    &__result{
+        width:340px;
+        @include flex-column;
+        padding:1rem 0;
+    }
+    &__header{
+        font-family:$medium;
+    }
+    &__note{
+        border-radius:1.5rem;
+    }
+}
+
