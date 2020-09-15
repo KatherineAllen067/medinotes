@@ -19,7 +19,7 @@ function Notes(){
     let history = useHistory();
 
 	function goBack(){
-		history.push("/")
+		history.push("/home")
     }
     
     const handleChange =(e)=>{
@@ -70,7 +70,6 @@ function Notes(){
 
     return(
     <>
-    <Header />
     <div className="note__container">
         <div className="note__top">
         <div className="note__top__nav">
@@ -103,7 +102,6 @@ function Notes(){
             </div>
             </div>
         </div>
-    <Footer />
     </>
     )
 }

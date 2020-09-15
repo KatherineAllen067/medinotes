@@ -1,11 +1,8 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
 import Calendar from 'react-calendar';
-import Header from '../Components/Header/Header.js';
-import Footer from '../Components/Footer/Footer.js';
 import "../styles/Calendar.scss";
 import Back from "../styles/assets/icons/back-icon.png";
-
 
 //https://www.npmjs.com/package/react-calendar calendat info page npm
 
@@ -14,12 +11,11 @@ function CalendarPage(){
     let history = useHistory();
 
 	function goBack(){
-		history.push("/")
+		history.push("/home")
 	}
  
         return(
             <>
-            <Header />
             <div className="calendar">
                 <div className="calendar__top">
                     <img src={Back}
@@ -34,7 +30,6 @@ function CalendarPage(){
                     />
                 </div>
             </div>
-            <Footer />
             </>
         )
 }

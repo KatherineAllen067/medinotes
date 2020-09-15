@@ -1,10 +1,6 @@
 import React, { useEffect, useState }from "react";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
-import Header from '../Header/Header.js';
-import Footer from '../Footer/Footer.js';
-import Delete from '../../styles/assets/icons/delete-icon.png';
-import Send from '../../styles/assets/icons/send-icon.png';
 import Back from '../../styles/assets/icons/back-icon.png';
 import '../../styles/Quiz.scss';
 import { uuid } from 'uuidv4';
@@ -42,7 +38,6 @@ function Quiz (){
 
         return(
 			<>
-			<Header />
 			<div className="quiz__container">
 			<div className="quiz__nav">
 				<img src={Back} 
@@ -83,7 +78,6 @@ function Quiz (){
 				</div>
 			</div>
 			</div>
-			<Footer />
             </>
         )
 }

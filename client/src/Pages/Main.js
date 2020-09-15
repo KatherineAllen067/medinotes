@@ -1,11 +1,6 @@
 import React, { useState }  from "react";
-// import { Link } from 'react-router-dom';
 import '../styles/Main.scss';
 import axios from 'axios';
-import NoAuthMain from '../Components/NoAuthMain/NoAuthMain.js';
-import MainAuth from '../Components/MainAuth/MainAuth.js';
-import Header from '../Components/Header/Header.js';
-import Footer from '../Components/Footer/Footer.js';
 
 // const authToken = () =>localStorage.getItem('userAuthToken')  
 
