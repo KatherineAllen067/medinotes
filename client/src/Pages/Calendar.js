@@ -20,15 +20,19 @@ function CalendarPage(){
         return(
             <>
             <Header />
-            <img src={Back}
-             alt="arrow back"
-              className="icon-back"
-              onClick={goBack} />
-            <h1 className="calTitle">Calendar</h1>
-            <div className="calBox">
-                <Calendar className="cal-style"
-                defaultView="month"
-                />
+            <div className="calendar">
+                <div className="calendar__top">
+                    <img src={Back}
+                    alt="arrow back"
+                    className="icon__2"
+                    onClick={goBack} />
+                    <h1 className="calendar__header">Your Calendar</h1>
+                </div>
+                <div className="calendar__box">
+                    <Calendar className="cal-style"
+                    defaultView="month"
+                    />
+                </div>
             </div>
             <Footer />
             </>

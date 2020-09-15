@@ -1,4 +1,4 @@
-import React, { useState }from "react";
+import React, { useEffect, useState }from "react";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import Header from '../Header/Header.js';
@@ -7,182 +7,90 @@ import Delete from '../../styles/assets/icons/delete-icon.png';
 import Send from '../../styles/assets/icons/send-icon.png';
 import Back from '../../styles/assets/icons/back-icon.png';
 import '../../styles/Quiz.scss';
+import { uuid } from 'uuidv4';
 
 function Quiz (){
+	//setting the id of the question they clicked yes to 
 	const [ questions, setQuestions ] = useState([]);
-	const [ answers, setAnswers ] = useState({});
+	const [ result, setResult ]= useState(''); 
+	const [ answers, setAnswers ] = useState([]);
 	let history = useHistory();
 
 	function goBack(){
 		history.push("/")
 	}
+	
+	useEffect(()=>{
+		axios.get('http://localhost:8080/quiz')
+		.then(res=>{
+			console.log(res.data)
+			setQuestions(res.data)
+			// setAnswers([...answers, 
+			// 	res.data.filter(a=> (a.s === result)
+			// 		return
+			// 		)
+			// ])
+		})
+		// console.log( 'results are :', result, 'questions are: ', questions, 'answers are :', answers)
+	}, [result])
+	
+	const getResult=(id)=>{
+		setResult(id)
+		console.log(result)
+	}
+	
+	const getQuiz= (e)=>{
+		//send array of question id that are answered yes
+		e.preventDefault();
+	}
 
-	// const getQuiz=(e)=>{
-	// 	e.preventDefault();
-	// 	axios.get('http://localhost:8080/quiz')
-	// 	.then(res=>{
-	// 		console.log(res.data)
-	// 		// find(a=>{
-	// 			// if(a.id === questions){
-	// 			// 	return setAnswers({
-	// 			// 		practitioner: a.practitioner,
-	// 			// 		description: a.description
-	// 			// 	})
-	// 			// }
-	// 	//if question has a value then pull answer 
-	// 	//if question true/has value make get request for the question
-	// 	//make on get for complete quiz which has all answers 
-	// 		})
-	// 			console.log(answers)
-	// 			console.log(questions)
-	// 	})
-	// 	.catch(err=>{console.log('error with get quiz', err)});
-	// }
         return(
-            <>
+			<>
 			<Header />
 			<div className="quiz__container">
-            <div className="quiz">
-			<img src={Back} 
-			alt="arrow back" 
-			className="icon-back__quiz"
-			onClick={goBack} />
-            <h1 className="quizTitle">Quiz</h1>
-                <form  >
-				<div className="quiz__question">
-					<label
-					className="quiz__question--label"
-					>Do you have Concerns about any Skin Conditions?
-					</label>
-					<div className="quiz__question--radio">
-                        <span className="answer">Yes</span>
-						<input
-						type="radio"
-						className="quiz__question--radio-btn"
-						name="question1"
-						value="125"
-						onChange={e=>setQuestions([...questions, e.target.value])}
-						></input>
-						<span className="answer">No</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="0"
-						></input>
-                    </div> 
-				</div>
-				<div className="quiz__question">
-                    <label
-					className="quiz__question--label">
-						Do you have Concerns about Muscules and Joints?</label>
-					<div className="quiz__question--radio">
-                        <span className="answer">Yes</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question2"
-						value="525"
-						onChange={e=>setQuestions([...questions, e.target.value])}
-						></input>
-						<span className="answer">No</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question2"
-						value="0"
-						></input>
-                    </div> 
-				</div>
-				<div className="quiz__question">
-                    <label
-					className="quiz__question--label">
-						Do you have Concerns about your Gastrointestinal system?</label>
-					<div className="quiz__question--radio">
-                        <span className="answer">Yes</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question3"
-						value="225"
-						onChange={e=>setQuestions([...questions, e.target.value])}
-						></input>
-						<span className="answer">No</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question3"
-						value="0"
-						></input>
-                    </div>
-				</div>
-				<div className="quiz__question">
-                    <label 
-					className="quiz__question--label">
-					Do you have Concerns about your well-being?</label>
-					<div className="quiz__question--radio">
-                        <span className="answer">Yes</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question4"
-						value="325"
-						onChange={e=>setQuestions([...questions, e.target.value])}
-						></input>
-						<span className="answer">No</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question4"
-						value="0"
-						></input>
-                    </div>
-				</div>
-				<div className="quiz__question">
-                    <label
-					className="quiz__question--label">
-					Do you have Concerns about family planning?</label>
-					<div className="quiz__question--radio">
-                        <span className="answer">Yes</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question5"
-						value="425"
-						onChange={e=>setQuestions([...questions, e.target.value])}
-						></input>
-						<span className="answer">No</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question5"
-						value="0"
-						></input>
-                    </div>
-				</div>
-					<div className="quiz__bottom">
-						<button 
-						type="submit" 
-						className="quiz-btn"
-						>
-							<img src={Send}
-							alt="send icon"
-							className="send-icon"
-							/>
+			<div className="quiz__nav">
+				<img src={Back} 
+				alt="arrow back" 
+				className="icon-back__quiz"
+				onClick={goBack} />
+			</div>
+			<div className="quiz__result_quiz"> 
+				<div className="quiz">
+					<h1 className="quizTitle">Quiz</h1>
+					<form onSubmit={getQuiz} >
+						{ questions.map(q=>
+						<div className="quiz__question" key={uuid()}>
+							<label className="quiz__question--label">
+							{q.question}
+							</label>
+							<div className="quiz__question--radio">
+								<span className="answer">Yes</span>
+								<input
+								type="radio"
+								className="quiz__question--radio-btn"
+								name={q.id}
+								value={q.id}
+								onChange={()=>getResult(q.id)}
+								></input>
+								<span className="answer">No</span>
+								<input
+								type="radio"
+								className="question1"
+								name={q.id}
+								value="0"
+								></input>
+							</div> 
+						</div>
+						)}
+						<button type="submit" className="quiz-btn">
+							<img src={Send} alt="page with arrow" className="send-icon"/>
+						</button>	
+						<button type="submit" className="quiz-btn" onClick={goBack}>
+							<img src={Delete} alt="trash can" className="delete-icon"/>
 						</button>
-						<button 
-						onClick={goBack}
-						className="quiz-btn"
-						>
-							<img src={Delete}
-							alt="delete icon"
-							className="delete-icon"
-							/>
-						</button>
-					</div>
-                </form>
-            </div>
-			<div className="quiz__results">
+					</form>
+				</div>
+				<div className="quiz__results"></div>
 			</div>
 			</div>
 			<Footer />

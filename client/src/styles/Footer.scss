@@ -7,7 +7,7 @@
     height:8rem;
     background-color:$header;
     display:flex;
-    align-items: center;
+    align-items: $middle;
     &-title{
         color:$white;
         font-family:$title;

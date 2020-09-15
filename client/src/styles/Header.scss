@@ -6,9 +6,8 @@
     width:100%;
     height:8rem;
     background-color:$header;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex-between;
+    align-items: $middle;
     &-title{
         color:$white;
         font-family:$title;

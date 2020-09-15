@@ -5,6 +5,16 @@ import { uuid } from 'uuidv4';
 
 const authToken=() => localStorage.getItem('userAuthToken');
 
+function formatDate(t){
+    let time = t
+    var myDate = new Date(time);
+    var year = myDate.getFullYear()
+    var month = myDate.getMonth()+1;
+    var date = myDate.getDate();
+    var dateFormat = date +"/" + month + "/" + year;
+    return dateFormat
+}
+
 function Searchbar(){
     const [ result, setResult ] = useState([]); 
 
@@ -56,7 +66,7 @@ function Searchbar(){
         <>
         <div className="search">
             <div className="search__box">
-                <h3 className="notes__header">
+                <h3 className="search__header">
                 Find a Note
                 </h3>
                 <form onSubmit={findNote}>
@@ -65,17 +75,17 @@ function Searchbar(){
                     type="text" 
                     name="search" 
                     placeholder="Search by keywords..." 
-                    className="notes__input"
+                    className="create__input"
                     >
                     </input>
                     <button 
                     type="submit"
-                    className="notes__btn"
+                    className="create__btn"
                     >
                     <img 
                     src={Search}
                     alt="search-icon"
-                    className="icon-search"
+                    className="icon__2"
                     />
                     </button>
                 </div>

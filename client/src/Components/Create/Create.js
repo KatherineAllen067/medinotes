@@ -24,40 +24,38 @@ function Create({ notes, setNotes }){
     };
 
     return(
-        <div className="notes">
+        <div className="create">
             <form onSubmit={publishNote}>
-                <div className="notes__bottom">
-                    <h3 className="notes__header">
-                    Create a Note</h3>
-                </div>             
-                <div className="notes__new">
-                    <div className="notes__new--top">
-                        <label>
+                <h3 className="create__header">
+                Create a Note</h3>           
+                <div className="create__new">
+                    <div className="create__new--top">
+                        <label className="create__label">
                         Practitioner
                         </label>
                         <input type="text"
                         name="practitioner" 
                         placeholder="Name or type is okay..."
-                        className="notes__input"
+                        className="create__input"
                         >
                         </input>
-                        <label>
+                        <label className="create__label">
                         Note
                         </label>
                         <textarea 
                         type="text" 
                         name="note"
-                        className="note__add"
+                        className="create__add"
                         >
                         </textarea> 
                     </div>
-                    <div className="notes__btn--add">
+                    <div className="create__btn">
                         <button 
                         type="submit" 
-                        className="notes__btn">
+                        className="create__btn">
                         <img src={Add}
-                        alt="add icon"
-                        className="icon-add"
+                        alt="page with plus sign"
+                        className="icon__2"
                         />
                         </button>
                     </div>

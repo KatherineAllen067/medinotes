@@ -71,26 +71,24 @@ function Notes(){
     return(
     <>
     <Header />
-    <div className="noteBox">
-        <div className="note__nav">
+    <div className="note__container">
+        <div className="note__top">
+        <div className="note__top__nav">
             <img src={Back}
             alt="arrow back"
-            className="icon-back__note"
+            className="note__top__arrow"
             onClick={goBack} 
             />
         </div>
-    <div className="noteBox__2">
-        <div className="search__create">
             <Searchbar />
             <Create 
             notes={notesData}
             setNote={setNotesData}
             />
         </div>
-        <div className="note2">
-            <div className="note2__column">
+        <div className="note__bottom">
+            <div className="note__bottom__column">
             { notesData.map(note=>
-                <div className="note">
                     <NoteItem
                     key={uuid()}
                     id={note.id}
@@ -101,12 +99,10 @@ function Notes(){
                     editFunction={editNote}
                     changeHandler={handleChange}
                      />
-                </div>
             )}
             </div>
             </div>
         </div>
-    </div>
     <Footer />
     </>
     )
@@ -115,7 +111,7 @@ function Notes(){
 function NoteItem(props){
     return(
         <>
-        <div className="note__row">
+        <div className="note">
             <div className="note__details">
                 <span className="note__cell">{props.practitioner}</span>
                 <span className="note__cell">{props.date}</span>
@@ -129,13 +125,13 @@ function NoteItem(props){
                 onChange={props.changeHandler}
                 />
             </div>
-            <div className="note__row-btn">
+            <div className="note__btn">
             <button  
-            className="notes__btn"  
+            className="note__btn--1"  
             onClick={()=>{props.deleteFunction(props.id)}}>
             <img src={Delete}
-            alt="delete icon"
-            className="icon-delete"
+            alt="trash can"
+            className="icon__1"
             />
             </button>
             </div>
@@ -143,7 +139,5 @@ function NoteItem(props){
         </>
     )
 }
-
-//https://www.freecodecamp.org/news/reactjs-implement-drag-and-drop-feature-without-using-external-libraries-ad8994429f1a/
 
 export default Notes;

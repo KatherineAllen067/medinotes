@@ -12,6 +12,16 @@ let activeUser = req.jwtDecoded.username;
     }));
 });
 
+function formatDate(t){
+    let time = t
+    var myDate = new Date(time);
+    var year = myDate.getFullYear()
+    var month = myDate.getMonth()+1;
+    var date = myDate.getDate();
+    var dateFormat = date +"/" + month + "/" + year;
+    return dateFormat
+}
+
 //post notes endpoint
 router.post("/", (req, res)=>{
     let activeUser = req.jwtDecoded.username;
@@ -20,9 +30,9 @@ router.post("/", (req, res)=>{
         ...req.body,
         id: uuidv4(),
         username: activeUser,
-        date: Date.now(),
+        date: formatDate(Date.now()),
     };
-    notes.push(newNote);
+    notes.shift(newNote);
     res.status(201).json(notes.filter(n=>{
         return n.username === activeUser
     }));
