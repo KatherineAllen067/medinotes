@@ -1,8 +1,6 @@
 import React, {useState, useEffect, useRef} from "react";
 import { useHistory } from 'react-router-dom';
 import ContentEditable from 'react-contenteditable'
-import Header from '../Components/Header/Header.js';
-import Footer from '../Components/Footer/Footer.js';
 import Searchbar from '../Components/Search/Search.js';
 import Create from '../Components/Create/Create.js';
 import '../styles/Notes.scss';

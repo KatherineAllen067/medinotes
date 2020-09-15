@@ -5,15 +5,15 @@ import { uuid } from 'uuidv4';
 
 const authToken=() => localStorage.getItem('userAuthToken');
 
-function formatDate(t){
-    let time = t
-    var myDate = new Date(time);
-    var year = myDate.getFullYear()
-    var month = myDate.getMonth()+1;
-    var date = myDate.getDate();
-    var dateFormat = date +"/" + month + "/" + year;
-    return dateFormat
-}
+// function formatDate(t){
+//     let time = t
+//     var myDate = new Date(time);
+//     var year = myDate.getFullYear()
+//     var month = myDate.getMonth()+1;
+//     var date = myDate.getDate();
+//     var dateFormat = date +"/" + month + "/" + year;
+//     return dateFormat
+// }
 
 function Searchbar(){
     const [ result, setResult ] = useState([]); 

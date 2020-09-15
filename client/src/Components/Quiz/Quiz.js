@@ -1,14 +1,16 @@
 import React, { useEffect, useState }from "react";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import Send from '../../styles/assets/icons/send-icon.png';
 import Back from '../../styles/assets/icons/back-icon.png';
 import '../../styles/Quiz.scss';
 import { uuid } from 'uuidv4';
 
 function Quiz (){
 	const [ questions, setQuestions ] = useState([]);
-	const [ result, setResult ]= useState(''); 
-	const [ answers, setAnswers ] = useState('');
+	const [ answer, setAnswer ]= useState([]);
+	const [ checkedIds, setCheckedIds ] = useState([]); 
+
 	let history = useHistory();
 
 	function goBack(){
@@ -19,24 +21,29 @@ function Quiz (){
 		axios.get('http://localhost:8080/quiz')
 		.then(res=>{
 			console.log(res.data)
-			setQuestions(res.data)
-
-					// practitioner1= res.data.answers.practitioner)
-					// description: a.answers.description,
-					// practitioner2: a.answers.practitioner2,
-					// description2: a.answers.description2
-
-			
+			setQuestions(res.data)		
 		})
-	}, [result])
+		.catch(err=>{
+			console.log('there is an error with quiz get', err)
+		})
+	}, [])
 	
-	const getResult=(id)=>{
-		
+	const getChecked=(id)=>{
+		// const checks=[...checkedIds]
+		// if (checks ===!id ) {
+		// 	checks.push(...checkedIds, id) 
+		// }
+		// else(checks.includes(id)){
+		// 	for (var i =0; i < checks.length; i++){
+		// 		if (checks[i] === id){
+		// 			checks.splice(i, 1);
+		// 		}
+		// 	}
+		// }
+		// console.log(checks)
 	}
-	
 
-
-        return(
+	return(
 			<>
 			<div className="quiz__container">
 			<div className="quiz__nav">
@@ -48,33 +55,30 @@ function Quiz (){
 			<div className="quiz__result_quiz"> 
 				<div className="quiz">
 					<h1 className="quizTitle">Choose a Health Concern to see Suggestions</h1>
-					<form>
+					<form> 
 						{ questions.map(q=>
 						<div className="quiz__question" key={uuid()}>
 							<label className="quiz__question--label">
-							{q.question}
+								{q.question}
 							</label>
-							<div className="quiz__question--radio">
+							<div className="quiz__question--check">
 								<input
-								type="radio"
-								className="quiz__question--radio-btn"
-								name={q.id}
+								type="checkbox"
+								className="quiz__question--check-btn"
+								name="concern"
 								value={q.id}
-								onChange={()=>getResult(q.id)}
+								// checked={ checkedIds.includes(q.id) }
+								// onChange={ ()=>getChecked(q.id)}
 								></input>
 							</div> 
 						</div>
 						)}
+						<button type="submit">
+							<img src={Send} alt="page with plus sign" className="icon__2"/>
+						</button>
 					</form>
 				</div>
 				<div className="quiz__results">
-					{questions.map(a=>{
-						return (
-						<div>
-							<span>{a.answers.practitioner}</span>
-						</div>
-						)
-					})}
 				</div>
 			</div>
 			</div>
