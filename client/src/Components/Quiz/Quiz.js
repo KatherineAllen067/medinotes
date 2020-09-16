@@ -8,9 +8,8 @@ import { uuid } from 'uuidv4';
 
 function Quiz (){
 	const [ questions, setQuestions ] = useState([]);
-	const [ answer, setAnswer ]= useState();
-	//if question id set show answer if not show nothing 
-
+	const [ answer, setAnswer ]= useState({});
+	const[ active, setActive ] = useState(false);
 	let history = useHistory();
 
 	function goBack(){
@@ -27,16 +26,25 @@ function Quiz (){
 			console.log('there is an error with quiz get', err)
 		})
 	}, [])
-	
-	const getChecked=(id)=>{
-		let newAnswer= questions.filter(concern=> concern.id === id)
-		console.log(newAnswer)		
-		}
 
-		// const showAnswer=(e)=>{
-		// 	e.preventDefault();
-		// 	setAnswers(newAnswer)
-		// }
+	const getChecked=(id)=>{
+		// console.log(answer[id]);
+		if( answer[id] === undefined ){
+			let answerIds= {...answer};
+			let newAnswer = questions.find(concern=> concern.id === id)
+			answerIds[id] = newAnswer;
+			setAnswer(answerIds)
+			console.log(answerIds)
+			console.log(answer)
+		}else{
+			var answerIds= {...answer}
+			delete answerIds[id]
+			setAnswer(answerIds)
+			console.log(answerIds)
+		}
+	}
+
+
 
 	return(
 		<div className="quiz__container"> 
@@ -50,28 +58,18 @@ function Quiz (){
 				<h1 className="quizTitle">Choose a Health Concern to see Suggestions</h1>
 				<form> 
 				{ questions.map(q=>
-					<div className="quiz__question" key={uuid()}>
-						<label className="quiz__question--label">
-							{q.question}
-						</label>
-						<div className="quiz__question--check">
-							<input
-							type="checkbox"
-							className="quiz__question--check-btn"
-							name="concern"
-							value={q.id}
-							onChange={ ()=>getChecked(q.id)}
-							></input>
-						</div> 
-					</div>
+				<Question
+				key={uuid()}
+				question={q.question}
+				id={q.id}
+				clickHandler={getChecked}
+				check={ answer[q.id] ? true : false }
+				/>
 				)}
-					<button type="submit">
-						<img src={Send} alt="page with plus sign" className="icon__2"/>
-					</button>
 				</form>
 			</div>
 			<div className="quiz__results">
-				{questions.map(a=>
+				{Object.values(answer).map(a=>
 					<div key={uuid()}>
 						<h4>{a.answers.practitioner}</h4>
 						<span>{a.answers.description}</span>
@@ -82,6 +80,29 @@ function Quiz (){
 			</div>
 		</div>
         )
+}
+
+function Question(props){
+
+	return(
+		<div className="quiz__question" key={uuid()}>
+		<label className="quiz__question--label">
+			{props.question}
+		</label>
+		<div className="quiz__question--check">
+			<input
+			type="checkbox"
+			className="quiz__checkbox"
+			name="concern"
+			value={props.id}
+			checked={props.check}
+			onChange={()=>
+				props.clickHandler(props.id)
+			}
+			></input>
+		</div> 
+	</div>
+	)
 }
 
 
