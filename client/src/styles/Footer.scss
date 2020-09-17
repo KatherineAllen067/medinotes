@@ -1,12 +1,12 @@
-@import './partials';
-@import './mixins';
 @import './fonts';
+@import './mixins';
+@import './partials';
 
-.header{
+.footer{
     width:100%;
-    height:8rem;
+    height:6rem;
     background-color:$header;
-    @include flex-between;
+    display:flex;
     align-items: $middle;
     &-title{
         color:$white;
@@ -17,11 +17,5 @@
     &-icon{
         width:2.5rem;
         height:2rem;
-        position: relative;
-        top: -26px;
-        left: -20px;
-    }
-    &__link{
-        text-decoration: none;
     }
 }

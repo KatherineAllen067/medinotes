@@ -2,8 +2,6 @@
 @import './mixins';
 @import './fonts';
 
-// rgba(0, 0, 0, 0.4)
-
 .card{
     width:100%;
     display:flex;
@@ -12,7 +10,7 @@
             font-family:$title;
             padding:0.5rem;
             display:flex;
-            justify-content: center;
+            justify-content: $middle;
             margin:0;
         }
 }
@@ -23,32 +21,19 @@
 }
 
 .card-nav1{
-        width:18rem;
-        height:20rem;
-        border: 1px solid navy;
-        border-radius:2rem;
-        overflow:hidden;
-        background-image: url('./assets/images/notes-bg.jpg');
-        background-size:cover;
-        box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
-
-}
-.card-nav2{
-    width:18rem;
-    height:20rem;
-    border: 1px solid navy;
-    border-radius:2rem;
+    width:16rem;
+    height:16rem;
+    border-radius:1.5rem;
     overflow:hidden;
-    background-image: url('./assets/images/quiz-card.jpg');
+    background-image: url('./assets/images/notes-bg.jpg');
     background-size:cover;
     box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
-    
 }
+
 .card-nav3{
-    width:18rem;
-    height:20rem;
-    border: 1px solid navy;
-    border-radius:2rem;
+    width:16rem;
+    height:16rem;
+    border-radius:1.5rem;
     overflow:hidden;
     background-image: url('./assets/images/calendar-card.jpg');
     background-size:cover;

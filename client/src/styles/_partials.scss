@@ -1,5 +1,14 @@
-@import './fonts';
+@import './_fonts.scss';
 
 $title: "kufam";
 $medium:"notoregular";
 $light:"notolight";
+
+$header:#99b3ff;
+$bg:rgb(242, 248, 255);
+$lines:navy;
+$white:#ffffff;
+
+$middle:center;
+$between:space-between;
+$around:space-around;

@@ -1,114 +1,78 @@
-import React, {Component} from "react";
+import React, { useEffect, useState }from "react";
+import { useHistory } from "react-router-dom";
+import Question from "../Components/Question/Question.js";
+import axios from 'axios';
+import Back from '../styles/assets/icons/back-icon.png';
 import '../styles/Quiz.scss';
+import { uuid } from 'uuidv4';
 
-class Quiz extends Component{
-    render(){
-        return(
-            <>
-            <h1 className="quizTitle">Quiz</h1>
-            <div className="quiz">
-                <form>
-                <label>Do you have Concerns about any Skin Conditions?</label>
-					<div className="question">
-                        <span className="answer">Yes</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="125"
-						></input>
-						<span className="answer">No</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="0"
-						></input>
-                    </div> 
-                    <label>Do you have Concerns about Muscules and Joints?</label>
-					<div className="question">
-                        <span className="answer">Yes</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="525"
-						></input>
-						<span className="answer">No</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="0"
-						></input>
-                    </div> 
-                    <label>Do you have Concerns about your Gastrointestinal system?</label>
-					<div className="question">
-                        <span className="answer">Yes</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="225"
-						></input>
-						<span className="answer">No</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="0"
-						></input>
-                    </div>
-                    <label>Do you have Concerns about your well-being?</label>
-					<div className="question">
-                        <span className="answer">Yes</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="325"
-						></input>
-						<span className="answer">No</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="0"
-						></input>
-                    </div>
-                    <label>Do you have Concerns about family planning?</label>
-					<div className="question">
-                        <span className="answer">Yes</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="425"
-						></input>
-						<span className="answer">No</span>
-						<input
-						type="radio"
-						className="question1"
-						name="question1"
-						value="0"
-						></input>
-                    </div>
-                    <button type="submit" className="quiz-btn">See Results</button>
-                    <button type="submit" className="quiz-btn2">Cancel</button>
-                </form>
-            </div>
-            </>
+function Quiz (){
+	const [ questions, setQuestions ] = useState([]);
+	const [ answer, setAnswer ]= useState({});
+	let history = useHistory();
+
+	function goBack(){
+		history.push("/")
+	}
+	
+	useEffect(()=>{
+		axios.get('http://localhost:8080/quiz')
+		.then(res=>{
+			setQuestions(res.data)	
+		})
+		.catch(err=>{
+			console.log('there is an error with quiz get', err)
+		})
+	}, [])
+
+	const getChecked=(id)=>{
+		if( answer[id] === undefined ){
+			let answerIds= {...answer};
+			let newAnswer = questions.find(concern=> concern.id === id)
+			answerIds[id] = newAnswer;
+			setAnswer(answerIds)
+			
+		}else{
+			var answerIds= {...answer}
+			delete answerIds[id]
+			setAnswer(answerIds)
+		}
+	}
+
+	return(
+		<div className="quiz__container"> 
+			<div className="quiz__nav">
+				<img src={Back} 
+				alt="arrow back" 
+				className="icon-back__quiz"
+				onClick={goBack} />
+			</div>
+			<div className="quiz">
+				<h1 className="quiz__title">Choose a Health Concern to see Suggestions</h1>
+				<form> 
+				{ questions.map(q=>
+				<Question
+				key={uuid()}
+				question={q.question}
+				id={q.id}
+				clickHandler={getChecked}
+				check={ answer[q.id] ? true : false }
+				/>
+				)}
+				</form>
+			</div>
+			<div className="quiz__results">
+				{Object.values(answer).map(a=>
+					<div className="result__list" key={uuid()}>
+						<h4>{a.answers.practitioner}</h4>
+						<span>{a.answers.description}</span>
+						<h4>{a.answers.practitioner2}</h4>
+						<span>{a.answers.description2}</span>
+					</div>
+				)}
+			</div>
+		</div>
         )
-    }
 }
-//five questions yes or no about health concerns
-//each answer will have a id
-//the id will be associated with a type of practitioner 
-//if you pick yes to a question there will be two types of practitioners give as result
-//skin conditions(125)
-// muscle and joint pain(525)
-// gastral intestinal(225)
-//well-being(325)
-// growing family (425)
 
 export default Quiz;

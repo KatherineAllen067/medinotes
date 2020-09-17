@@ -5,44 +5,45 @@
 .log-title{
     font-family:$medium;
     font-size:1.5rem;
-    color:#ffffff;
+    color:$white;
     display: flex;
-    justify-content: center; 
+    justify-content: $middle; 
     padding:0.5rem;  
 }
 
 .log-box{
     display:flex;
-    align-items: center;
+    align-items: $middle;
 }
 
 .log-label{
-    color:#ffffff;
+    color:$white;
     font-family:$medium;
     padding:0.5rem;
 }
 
-input{
+.log__input{
     width:8rem;
     height:1rem;
     border-radius: 1.5rem;
-    outline:navy;
+    border:none;
     padding:0.5rem;
     &::placeholder{
-        color:navy;
+        color:$lines;
         font-family:$medium;
         padding-left:0.5rem;
     }
 }
+
 .log-button{
     font-family:$light;
     width:10rem;
     height:1.5rem;
-    color:#ffffff;
-    background-color:navy;
+    color:$white;
+    background-color:$header;
     border:none;
     display: flex;
-    align-items: center;
+    align-items: $middle;
 }
 
 .button_icon{
@@ -57,5 +58,5 @@ input{
 .login{
     width: 350px;
     display: flex;
-    align-items: center;
+    align-items: $middle;
 }

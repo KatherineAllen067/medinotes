@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import ReactDOM, { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../../styles/Card.scss';
 
 
@@ -12,12 +12,6 @@ class Card extends Component{
                     <div className="card-nav1">
                         <h2 className="card-nav-title">Notes</h2>
                         <div className="card-nav-image1"></div>
-                    </div>
-                </Link>
-                <Link to="/quiz" className="link">
-                    <div className="card-nav2">
-                        <h2 className="card-nav-title">Quiz</h2>
-                        <div className="card-nav-image2"></div>
                     </div>
                 </Link>
                 <Link to="/calendar" className="link">

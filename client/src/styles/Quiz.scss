@@ -1,8 +1,75 @@
-@import './partials';
-@import './mixins';
-@import './fonts';
+@import './_partials';
+@import './_mixins';
+@import './_fonts';
 
-.quizTitle{
-    margin:0;
-    padding:2rem;
+.result__list{
+    @include flex-column;
+    align-items: $middle;
+}
+
+.quiz{
+    width: 31rem;
+    margin: 0;
+    &-btn{
+        background-color:$bg;
+        border:none;
+        padding: 0 2rem;
+    }
+    &__bottom{
+        display:flex;
+        justify-content: flex-end;
+    }
+    &__results{
+        width: 25rem;
+        text-align: $middle;
+    }
+    &__nav{
+        padding:1rem;
+        height:2rem;
+    }
+    &__result_quiz{
+        display:flex;
+        padding-bottom:0.5rem;
+    }
+    &__title{
+        width:25rem;
+        font-family: $title;
+        margin:0;
+        padding:1rem;
+    }
+    &__container{
+        width:100%;
+        padding:1rem;
+        box-sizing: border-box;
+        background-color: $bg;
+        display:flex;
+        justify-content: space-evenly;
+    }
+
+    &__question{
+        height:5rem;
+        display:flex;
+        &--label{
+            font-family:$medium;
+            padding:1rem;
+        }
+        &--radio{
+            padding:1rem 0;
+        }
+    }
+}
+
+.answer{
+    font-family:$medium;
+    font-weight:bold;
+}
+
+.send-icon{
+    width:2rem;
+}
+
+.icon-back__quiz{
+    width:2.5rem;
+    height:2.5rem;
+    padding:1rem;
 }
