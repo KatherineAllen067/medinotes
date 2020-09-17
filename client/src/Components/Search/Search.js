@@ -11,7 +11,7 @@ function Searchbar({ dateFormat }){
     //show search results 
     const findNote = (e)=>{
         e.preventDefault();
-        let word = e.target.search.value.toLowerCase().toString();
+        let word = e.target.search.value.toString();
         console.log(word)
         axios.get('http://localhost:8080/notes', {
             headers: { authorization: `Bearer ${authToken()}` }
@@ -20,7 +20,7 @@ function Searchbar({ dateFormat }){
         .then(sear=>{
             console.log(sear.data)
             sear.data.find(s=>{
-                if(s.note.toLowerCase().split(' ').includes(word) && s.practitioner.toLowerCase().split(' ').includes(word)){
+                if(s.note.split(' ').includes(word) && s.practitioner.toLowerCase().split(' ').includes(word)){
                     console.log('note & doctor contains word')
                     return setResult([...result, {
                         id: uuid(),
@@ -29,7 +29,7 @@ function Searchbar({ dateFormat }){
                         date: s.date
                     }]);  
                 }
-                else if(s.note.toLowerCase().split(' ').includes(word)){
+                else if(s.note.split(' ').includes(word)){
                     console.log('contains word in note')
                     return setResult([...result,{
                         id: uuid(),
@@ -37,7 +37,7 @@ function Searchbar({ dateFormat }){
                         note: s.note,
                         date: s.date
                     }]);
-                }else if(s.practitioner.toLowerCase().split(' ').includes(word)){
+                }else if(s.practitioner.split(' ').includes(word)){
                     console.log('contains word in doctor title')
                     return setResult([...result,{
                         id: uuid(),
