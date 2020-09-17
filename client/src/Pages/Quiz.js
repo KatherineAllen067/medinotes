@@ -1,15 +1,14 @@
 import React, { useEffect, useState }from "react";
 import { useHistory } from "react-router-dom";
+import Question from "../Components/Question/Question.js";
 import axios from 'axios';
-import Send from '../../styles/assets/icons/send-icon.png';
-import Back from '../../styles/assets/icons/back-icon.png';
-import '../../styles/Quiz.scss';
+import Back from '../styles/assets/icons/back-icon.png';
+import '../styles/Quiz.scss';
 import { uuid } from 'uuidv4';
 
 function Quiz (){
 	const [ questions, setQuestions ] = useState([]);
 	const [ answer, setAnswer ]= useState({});
-	const[ active, setActive ] = useState(false);
 	let history = useHistory();
 
 	function goBack(){
@@ -19,7 +18,6 @@ function Quiz (){
 	useEffect(()=>{
 		axios.get('http://localhost:8080/quiz')
 		.then(res=>{
-			console.log(res.data)
 			setQuestions(res.data)	
 		})
 		.catch(err=>{
@@ -28,23 +26,18 @@ function Quiz (){
 	}, [])
 
 	const getChecked=(id)=>{
-		// console.log(answer[id]);
 		if( answer[id] === undefined ){
 			let answerIds= {...answer};
 			let newAnswer = questions.find(concern=> concern.id === id)
 			answerIds[id] = newAnswer;
 			setAnswer(answerIds)
-			console.log(answerIds)
-			console.log(answer)
+			
 		}else{
 			var answerIds= {...answer}
 			delete answerIds[id]
 			setAnswer(answerIds)
-			console.log(answerIds)
 		}
 	}
-
-
 
 	return(
 		<div className="quiz__container"> 
@@ -81,29 +74,5 @@ function Quiz (){
 		</div>
         )
 }
-
-function Question(props){
-
-	return(
-		<div className="quiz__question" key={uuid()}>
-		<label className="quiz__question--label">
-			{props.question}
-		</label>
-		<div className="quiz__question--check">
-			<input
-			type="checkbox"
-			className="quiz__checkbox"
-			name="concern"
-			value={props.id}
-			checked={props.check}
-			onChange={()=>
-				props.clickHandler(props.id)
-			}
-			></input>
-		</div> 
-	</div>
-	)
-}
-
 
 export default Quiz;

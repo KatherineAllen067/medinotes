@@ -30,7 +30,6 @@ function Notes(){
             headers: { authorization: `Bearer ${authToken()}` }
         })
         .then(res=>{
-            console.log(res.data)
             setNotesData(res.data)
         })
     }, [])
@@ -40,7 +39,6 @@ function Notes(){
         axios.delete(`http://localhost:8080/notes/${id}`,{
             headers: { authorization: `Bearer ${authToken()}`}
         })
-        // console.log(location.pathname)
         .then(res=>{
             console.log(res)
             setNotesData(res.data)
@@ -58,7 +56,6 @@ function Notes(){
             headers: { authorization: `Bearer ${authToken()}`}
         })
         .then(edit=>{
-            console.log(edit.data)
             setNotesData(edit.data)
         })
         .catch(err=>{

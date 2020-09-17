@@ -5,16 +5,6 @@ import { uuid } from 'uuidv4';
 
 const authToken=() => localStorage.getItem('userAuthToken');
 
-// function formatDate(t){
-//     let time = t
-//     var myDate = new Date(time);
-//     var year = myDate.getFullYear()
-//     var month = myDate.getMonth()+1;
-//     var date = myDate.getDate();
-//     var dateFormat = date +"/" + month + "/" + year;
-//     return dateFormat
-// }
-
 function Searchbar(){
     const [ result, setResult ] = useState([]); 
 
@@ -27,7 +17,6 @@ function Searchbar(){
             headers: { authorization: `Bearer ${authToken()}` }
         })
         //check the casing and both the WORD and the ARRAY 
-        //refactor into a function instead of chaining 
         .then(sear=>{
             console.log(sear.data)
             sear.data.find(s=>{

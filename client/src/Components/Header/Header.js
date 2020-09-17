@@ -7,7 +7,6 @@ import Login from '../Login/Login.js';
 function Header({ profile, setProfile, name, setName, login, setLogin, fetchProfile }){
 
     return(
-        <>
         <div className="header">
             <Link to="/" className="header__link">
                 <h1 className="header-title">MediNotes
@@ -24,10 +23,7 @@ function Header({ profile, setProfile, name, setName, login, setLogin, fetchProf
         setLoggedIN={setLogin}      
         />
         </div>
-        </>
     )
 }
-
-
 
 export default Header;

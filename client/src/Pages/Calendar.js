@@ -15,7 +15,6 @@ function CalendarPage(){
 	}
  
         return(
-            <>
             <div className="calendar">
                 <div className="calendar__top">
                     <img src={Back}
@@ -29,7 +28,6 @@ function CalendarPage(){
                     />
                 </div>
             </div>
-            </>
         )
 }
 
