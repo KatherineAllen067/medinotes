@@ -34,9 +34,7 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
         setLoggedIN(false);
         goBack();
       }
- //when componen mounts is there a token set login state-- 
- //login from here, but state is set state higher in the tree 
- //conditional render show username and welcome and nav cards 
+
     return(
         <>
         {
@@ -68,8 +66,7 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
                      </div>
                  </form>
              </div>
-             )
-               
+             )   
             : 
             (
             <div className="login">
@@ -88,14 +85,9 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
             </form>
             </div>
             )
-
-
-        }
-           
+        }   
         </>
     )
 }
-
-
 
 export default Login;

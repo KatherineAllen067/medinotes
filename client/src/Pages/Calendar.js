@@ -15,14 +15,12 @@ function CalendarPage(){
 	}
  
         return(
-            <>
             <div className="calendar">
                 <div className="calendar__top">
                     <img src={Back}
                     alt="arrow back"
-                    className="icon__2"
+                    className="icon-back__quiz"
                     onClick={goBack} />
-                    <h1 className="calendar__header">Your Calendar</h1>
                 </div>
                 <div className="calendar__box">
                     <Calendar className="cal-style"
@@ -30,7 +28,6 @@ function CalendarPage(){
                     />
                 </div>
             </div>
-            </>
         )
 }
 

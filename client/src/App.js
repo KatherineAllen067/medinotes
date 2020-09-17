@@ -4,12 +4,13 @@ import './App.scss';
 import "./styles/Main.scss";
 import axios from 'axios';
 import CalendarPage from "./Pages/Calendar.js";
-import Quiz from "./Components/Quiz/Quiz.js";
+import Quiz from "./Pages/Quiz.js";
 import Notes from "./Pages/Notes.js";
 import Header from "./Components/Header/Header.js";
 import Footer from "./Components/Footer/Footer.js";
 import NoAuth from "./Components/NoAuthMain/NoAuthMain.js";
 import Auth from "./Components/MainAuth/MainAuth.js";
+
 const authToken = () =>localStorage.getItem('userAuthToken') 
 
 function App() {

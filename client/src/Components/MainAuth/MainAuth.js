@@ -5,7 +5,7 @@ import '../../styles/Main.scss';
 function MainAuth(){
     return(
         <div className="main">
-                <Card />
+            <Card />
         </div>
     )
 }
