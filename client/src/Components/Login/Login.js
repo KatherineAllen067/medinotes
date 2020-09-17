@@ -45,11 +45,13 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
                      <div className="form-row">
                         <label className="log-label">Email</label>
                         <input 
+                        className="log__input"
                         type="text" 
                         name="username" 
                         placeholder="Username..."></input>
                         <label className="log-label">Password</label>
                         <input 
+                        className="log__input"
                         type="password" 
                         name="password" 
                         placeholder="Password..."></input>

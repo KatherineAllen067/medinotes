@@ -1,71 +1,51 @@
 [
     {   "question": "Do you have Concerns about any Skin Conditions?",
         "id": "125",
-        "answers":[
-            {
+        "answers":{
                 "practitioner": "Dermalotogist",
-                "description": "A doctor that specializes in treating skin, hair, nail, and mucous membrane disorders and diseases."
-            },
-            {
+                "description": "A doctor that specializes in treating skin, hair, nail, and mucous membrane disorders and diseases.",
                 "practitioner2": "Holistic Esthentician",
                 "description2": "A practitioner that provide expertise and treatment through use of healthy non-harming modalities and natural products with the goal of optimizing skin and nail health as well as improving overall wellbeing."
             }
-        ]
     },
     {
         "question": "Do you have Concerns about your Gastrointestinal system?",
         "id": "225",
-        "answers":[
-            {
+        "answers":{
                 "practitioner": "Gastroenterologists",
-                "description": "A medical practitioner qualified to diagnose and treat disorders of the stomach and intestines."
-            },
-            {
+                "description": "A medical practitioner qualified to diagnose and treat disorders of the stomach and intestines.",
                 "practitioner2": "Licensed Acupuncturists",
                 "description2": "a system of integrative medicine that involves pricking the skin or tissues with needles, used to alleviate pain and to treat various physical, mental, and emotional conditions. Originating in ancient China, acupuncture is now widely practiced in the West."
             }
-        ]
     },
     {
         "question": "Do you have Concerns about your Well-Being?",
         "id": "325",
-        "answers":[
-            {
+        "answers":{
                 "practitioner": "Psychologists",
-                "description": "A pracitioner who uses talk therapy to treat mental health conditions. They may also act as consultants along with other healthcare providers."
-            },
-            {
+                "description": "A pracitioner who uses talk therapy to treat mental health conditions. They may also act as consultants along with other healthcare providers.",
                 "practitioner2": "Cognitive Behavioral Therapist",
                 "description2": "A short-term form of psychotherapy that focuses on the problems that come up in day-to-day life."
             }
-        ]
     },
     {
         "question": "Do you have Concerns about Family Planning?",
         "id": "425",
-        "answers":[
-            {
+        "answers":{
                 "practitioner": "General Practitioner",
-                "description": "A medical doctor who treats acute and chronic illnesses and provides preventive care and health education to patients."
-            },
-            {
+                "description": "A medical doctor who treats acute and chronic illnesses and provides preventive care and health education to patients.",
                 "practitioner2": "Midwife",
                 "description2": "a health professional trained to support and care for women during pregnancy, labour and birth."
             }
-        ]
     }, 
     {
         "question": "Do you have Concerns about your Muscules and Joints?",
         "id": "525",
-        "answers":[
-           { 
+        "answers":{ 
             "practitioner": "Physical therapists",
-            "description": "A practitioner who specializes in improving and restoring mobility, movement, strength, flexibility, balance and coordination in people of all ages."
-           },
-           {
-            "practitioner": "Chiropractor",
-            "description": "A dermatologist is a doctor that specializes in treating skin, hair, nail, and mucous membrane disorders and diseases."
+            "description": "A practitioner who specializes in improving and restoring mobility, movement, strength, flexibility, balance and coordination in people of all ages.",
+            "practitioner2": "Chiropractor",
+            "description2": "A dermatologist is a doctor that specializes in treating skin, hair, nail, and mucous membrane disorders and diseases."
            }
-        ]
     }
 ]

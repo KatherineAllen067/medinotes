@@ -5,16 +5,6 @@ import Add from '../../styles/assets/icons/add-note.png';
 const authToken=() => localStorage.getItem('userAuthToken');
 
 function Create({ notes, setNotes }){
-
-// function formatDate(t){
-//     let time = t
-//     var myDate = new Date(time);
-//     var year = myDate.getFullYear()
-//     var month = myDate.getMonth()+1;
-//     var date = myDate.getDate();
-//     var dateFormat = date +"/" + month + "/" + year;
-//     return dateFormat
-// }
      
     //creating a new note
      const publishNote=(e)=>{

@@ -22,11 +22,11 @@
     padding:0.5rem;
 }
 
-input{
+.log__input{
     width:8rem;
     height:1rem;
     border-radius: 1.5rem;
-    outline:$lines;
+    border:none;
     padding:0.5rem;
     &::placeholder{
         color:$lines;

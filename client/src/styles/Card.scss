@@ -21,21 +21,19 @@
 }
 
 .card-nav1{
-        width:18rem;
-        height:20rem;
-        border: 1px solid $lines;
-        border-radius:2rem;
-        overflow:hidden;
-        background-image: url('./assets/images/notes-bg.jpg');
-        background-size:cover;
-        box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+    width:16rem;
+    height:16rem;
+    border-radius:1.5rem;
+    overflow:hidden;
+    background-image: url('./assets/images/notes-bg.jpg');
+    background-size:cover;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
 }
 
 .card-nav3{
-    width:18rem;
-    height:20rem;
-    border: 1px solid $lines;
-    border-radius:2rem;
+    width:16rem;
+    height:16rem;
+    border-radius:1.5rem;
     overflow:hidden;
     background-image: url('./assets/images/calendar-card.jpg');
     background-size:cover;

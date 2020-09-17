@@ -4,9 +4,6 @@ import Calendar from 'react-calendar';
 import "../styles/Calendar.scss";
 import Back from "../styles/assets/icons/back-icon.png";
 
-//https://www.npmjs.com/package/react-calendar calendat info page npm
-
-
 function CalendarPage(){
     let history = useHistory();
 

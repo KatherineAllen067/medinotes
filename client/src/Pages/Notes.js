@@ -16,6 +16,16 @@ function Notes(){
     const text = useRef('')
     let history = useHistory();
 
+    function formatDate(t){
+    let time = t
+    var myDate = new Date(time);
+    var year = myDate.getFullYear()
+    var month = myDate.getMonth()+1;
+    var date = myDate.getDate();
+    var dateFormat = date +"/" + month + "/" + year;
+    return dateFormat
+    }
+
 	function goBack(){
 		history.push("/home")
     }
@@ -74,7 +84,9 @@ function Notes(){
             onClick={goBack} 
             />
         </div>
-            <Searchbar />
+            <Searchbar 
+            dateFormat={formatDate}
+            />
             <Create 
             notes={notesData}
             setNotes={setNotesData}
@@ -88,7 +100,7 @@ function Notes(){
                     id={note.id}
                     note={note.note}
                     practitioner={note.practitioner}
-                    date={note.date}
+                    date={formatDate(note.date)}
                     deleteFunction={deleteNote}
                     editFunction={editNote}
                     changeHandler={handleChange}

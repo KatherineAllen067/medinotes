@@ -30,8 +30,6 @@ function App() {
     .catch(err=> console.log('profile error', err));
  }
 
-  //react router three ways to render component for a route 
-  //pass down the profile/login to the other components to render the properly 
   return (
   <>
   <BrowserRouter>

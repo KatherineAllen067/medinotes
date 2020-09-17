@@ -48,7 +48,7 @@ function Quiz (){
 				onClick={goBack} />
 			</div>
 			<div className="quiz">
-				<h1 className="quizTitle">Choose a Health Concern to see Suggestions</h1>
+				<h1 className="quiz__title">Choose a Health Concern to see Suggestions</h1>
 				<form> 
 				{ questions.map(q=>
 				<Question
@@ -63,7 +63,7 @@ function Quiz (){
 			</div>
 			<div className="quiz__results">
 				{Object.values(answer).map(a=>
-					<div key={uuid()}>
+					<div className="result__list" key={uuid()}>
 						<h4>{a.answers.practitioner}</h4>
 						<span>{a.answers.description}</span>
 						<h4>{a.answers.practitioner2}</h4>
