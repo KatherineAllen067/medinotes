@@ -20,7 +20,7 @@ function Searchbar({ dateFormat }){
         .then(sear=>{
             console.log(sear.data)
             sear.data.find(s=>{
-                if(s.note.split(' ').includes(word) && s.practitioner.toLowerCase().split(' ').includes(word)){
+                if(s.note.split(' ').includes(word) && s.practitioner.split(' ').includes(word)){
                     console.log('note & doctor contains word')
                     return setResult([...result, {
                         id: uuid(),
