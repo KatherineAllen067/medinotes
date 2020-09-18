@@ -121,10 +121,10 @@ function NoteItem(props){
                 <span className="note__cell">{props.practitioner}</span>
                 <span className="note__cell">{props.date}</span>
             </div>
-            <div>
+            <div className="note__blurb">
                 {/* library on change to listen to change */}
                 <ContentEditable 
-                className="note__blurb"
+                className="edit__text"
                 html={props.note}
                 onBlur={()=>{props.editFunction(props.id)}}
                 onChange={props.changeHandler}

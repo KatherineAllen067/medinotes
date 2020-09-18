@@ -49,6 +49,7 @@
     &__question{
         height:5rem;
         display:flex;
+        align-items: $middle;
         &--label{
             font-family:$medium;
             padding:1rem;
