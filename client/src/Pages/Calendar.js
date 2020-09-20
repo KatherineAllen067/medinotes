@@ -16,7 +16,7 @@ function CalendarPage(){
                 <div className="calendar__top">
                     <img src={Back}
                     alt="arrow back"
-                    className="icon-back__quiz"
+                    className="icon-back__suggest"
                     onClick={goBack} />
                 </div>
                 <div className="calendar__box">
