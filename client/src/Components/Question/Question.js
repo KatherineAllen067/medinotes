@@ -3,14 +3,14 @@ import { uuid } from 'uuidv4';
 
 function Question(props){
 	return(
-		<div className="quiz__question" key={uuid()}>
-		<label className="quiz__question--label">
+		<div className="suggest__question" key={uuid()}>
+		<label className="suggest__question--label">
 			{props.question}
 		</label>
-		<div className="quiz__question--check">
+		<div className="suggest__question--check">
 			<input
 			type="checkbox"
-			className="quiz__checkbox"
+			className="suggest__checkbox"
 			name="concern"
 			value={props.id}
 			checked={props.check}

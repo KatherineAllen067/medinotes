@@ -40,15 +40,15 @@ function Quiz (){
 	}
 
 	return(
-		<div className="quiz__container"> 
+		<div className="suggest__container"> 
 			<div className="quiz__nav">
 				<img src={Back} 
 				alt="arrow back" 
-				className="icon-back__quiz"
+				className="icon-back__suggest"
 				onClick={goBack} />
 			</div>
-			<div className="quiz">
-				<h1 className="quiz__title">Choose a Health Concern to see Suggestions</h1>
+			<div className="suggest">
+				<h1 className="suggest__title">Choose a Health Concern to see Suggestions</h1>
 				<form> 
 				{ questions.map(q=>
 				<Question
@@ -61,7 +61,7 @@ function Quiz (){
 				)}
 				</form>
 			</div>
-			<div className="quiz__results">
+			<div className="suggest__results">
 				{Object.values(answer).map(a=>
 					<div className="result__list" key={uuid()}>
 						<h4>{a.answers.practitioner}</h4>

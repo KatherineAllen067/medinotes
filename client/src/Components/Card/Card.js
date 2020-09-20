@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import { Link } from 'react-router-dom';
 import '../../styles/Card.scss';
 
-
 class Card extends Component{
     render(){
         return(
