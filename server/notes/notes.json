@@ -4,7 +4,7 @@
         "username": "Emily",
         "date": 1600309417221,
         "practitioner": "Dr.Perry",
-        "note": "changing clinic location to downtown, the office hours are changing to Wednesday and Thursdays 9 to 3"
+        "note": "changing clinic location to downtown, the office hours are changing to Wednesdays and Thursdays 9 to 3"
     },
     {
         "id": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
@@ -25,14 +25,14 @@
         "username": "Emily",
         "date": 1600309417221,
         "practitioner": "Alis RMT",
-        "note": "Did a lot of work on the back of my shoulder, said my levator scapulae on the left side. Applying heat for 10-20 minutes is okay but should ice before bed for 20 minutes max"
+        "note": "Back of my  left shoulder, levator scapulae. Applying heat for 10-20 minutes but ice before bed for 20 minutes max"
     },
     {
         "id": "89898957-04ba-4bd0-9f5c-a7aea7447963",
         "username": "Emily",
         "date": 1600309417221,
         "practitioner": "Carter Nurt",
-        "note": "To cut out diary for two to three weeks starting today, need to keep write and entries 30minutes after eating to check reactions and what I specifically ate."
+        "note": "No diary for two to three weeks, keep food journal 30 minutes after eating."
     },
     {
         "id": "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
@@ -46,7 +46,7 @@
         "username": "Emily",
         "date": 1600309417221,
         "practitioner": "Dr.Ray (kids doctor)",
-        "note": "Danny had the same reaction with the arm rash only one side this time not a mango allergy but did have some new type of candy at a birthday party for Ian will have to call and ask."
+        "note": "Danny arm rash only one side this time not a mango? Had some type of candy at Ian's birthday."
 
 
     },
