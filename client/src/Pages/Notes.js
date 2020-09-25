@@ -59,6 +59,7 @@ function Notes(){
     //handling a note edit
     const editNote=(id)=>{
         let newNote = text.current;
+        //if newNote empty don't update "" else not empy string  
         console.log('new note is: ', newNote);
         axios.put(`http://localhost:8080/notes/${id}`,{
                 note: newNote
@@ -112,6 +113,8 @@ function Notes(){
     </>
     )
 }
+
+//notes edit click inital value of ref
 
 function NoteItem(props){
     return(

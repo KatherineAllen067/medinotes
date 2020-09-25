@@ -7,6 +7,12 @@ const authToken=() => localStorage.getItem('userAuthToken');
 
 function Searchbar({ dateFormat }){
     const [ result, setResult ] = useState([]); 
+    //function to take word and test with all the notes and doctor data
+    //forEach note does it include word?
+    //if it includes word 
+    //print note
+    //take the data and filter, does note of prac include it? technially don't need to split the string
+    //filter instead don't have to split 
 
     //show search results 
     const findNote = (e)=>{
@@ -47,8 +53,8 @@ function Searchbar({ dateFormat }){
                     }]);
                 }else{ return console.log('no note found'); } 
             })
-            console.log(result)
         })
+        console.log(result)
     }
 
     return(
