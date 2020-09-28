@@ -25,20 +25,3 @@
         padding:1rem;
     }
 }
-.card-nav2{
-    width:16rem;
-    height:16rem;
-    border-radius:1.5rem;
-    overflow:hidden;
-    background-image: url('./assets/images/quiz-card.jpg');
-    background-size:cover;
-    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
-    
-    &-nav2-title{
-        font-family:$title;
-        padding:0.5rem;
-        display:flex;
-        justify-content: $middle;
-        margin:0;
-    }
-}

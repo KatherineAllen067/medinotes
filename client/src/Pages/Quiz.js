@@ -4,7 +4,7 @@ import Question from "../Components/Question/Question.js";
 import axios from 'axios';
 import Back from '../styles/assets/icons/back-icon.png';
 import '../styles/Quiz.scss';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 function Quiz (){
 	const [ questions, setQuestions ] = useState([]);
@@ -52,7 +52,7 @@ function Quiz (){
 				<form> 
 				{ questions.map(q=>
 				<Question
-				key={uuid()}
+				key={uuidv4()}
 				question={q.question}
 				id={q.id}
 				clickHandler={getChecked}
@@ -63,7 +63,7 @@ function Quiz (){
 			</div>
 			<div className="suggest__results">
 				{Object.values(answer).map(a=>
-					<div className="result__list" key={uuid()}>
+					<div className="result__list" key={uuidv4()}>
 						<h4>{a.answers.practitioner}</h4>
 						<span>{a.answers.description}</span>
 						<h4>{a.answers.practitioner2}</h4>

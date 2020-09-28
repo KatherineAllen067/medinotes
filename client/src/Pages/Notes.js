@@ -7,7 +7,7 @@ import '../styles/Notes.scss';
 import Delete from '../styles/assets/icons/delete-icon.png';
 import Back from '../styles/assets/icons/back-icon.png';
 import axios from 'axios';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 const authToken=() => localStorage.getItem('userAuthToken');
 
@@ -59,19 +59,23 @@ function Notes(){
     //handling a note edit
     const editNote=(id)=>{
         let newNote = text.current;
-        //if newNote empty don't update "" else not empy string check docs
         console.log('new note is: ', newNote);
-        axios.put(`http://localhost:8080/notes/${id}`,{
-                note: newNote
-        },{
-            headers: { authorization: `Bearer ${authToken()}`}
-        })
-        .then(edit=>{
-            setNotesData(edit.data)
-        })
-        .catch(err=>{
-            console.log('error with edit request', err)
-        });
+        //if newNote empty don't update "" else not empy string check docs
+        if(newNote === ""){
+            console.log("nothing to change")
+        }else{
+            axios.put(`http://localhost:8080/notes/${id}`,{
+                    note: newNote
+            },{
+                headers: { authorization: `Bearer ${authToken()}`}
+            })
+            .then(edit=>{
+                setNotesData(edit.data)
+            })
+            .catch(err=>{
+                console.log('error with edit request', err)
+            });
+        }
     }
 
     return(
@@ -97,7 +101,7 @@ function Notes(){
             <div className="note__bottom__column">
             { notesData.map(note=>
                     <NoteItem
-                    key={uuid()}
+                    key={uuidv4()}
                     id={note.id}
                     note={note.note}
                     practitioner={note.practitioner}
@@ -113,8 +117,6 @@ function Notes(){
     </>
     )
 }
-
-//notes edit click inital value of ref
 
 function NoteItem(props){
     return(

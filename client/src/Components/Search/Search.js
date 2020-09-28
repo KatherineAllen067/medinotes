@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Search from '../../styles/assets/icons/search-icon.png';
 import axios from 'axios';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 const authToken=() => localStorage.getItem('userAuthToken');
 
@@ -17,44 +17,27 @@ function Searchbar({ dateFormat }){
     //show search results 
     const findNote = (e)=>{
         e.preventDefault();
-        let word = e.target.search.value.toString();
+        let word = e.target.search.value;
         console.log(word)
         axios.get('http://localhost:8080/notes', {
             headers: { authorization: `Bearer ${authToken()}` }
         })
-        //check the casing and both the WORD and the ARRAY 
         .then(sear=>{
             console.log(sear.data)
-            sear.data.find(s=>{
-                if(s.note.split(' ').includes(word) && s.practitioner.split(' ').includes(word)){
-                    console.log('note & doctor contains word')
-                    return setResult([...result, {
-                        id: uuid(),
-                        practitioner: s.practitioner,
-                        note: s.note,
-                        date: s.date
-                    }]);  
+                sear.data.filter(s=>{
+                   if(s.note || s.practitioner === word){
+                   console.log('contains word');
+                   return setResult([...result, {
+                    id: uuidv4(),
+                    practitioner: s.practitioner,
+                    note: s.note,
+                    date: s.date
+                   }]);
                 }
-                else if(s.note.split(' ').includes(word)){
-                    console.log('contains word in note')
-                    return setResult([...result,{
-                        id: uuid(),
-                        practitioner: s.practitioner,
-                        note: s.note,
-                        date: s.date
-                    }]);
-                }else if(s.practitioner.split(' ').includes(word)){
-                    console.log('contains word in doctor title')
-                    return setResult([...result,{
-                        id: uuid(),
-                        practitioner: s.practitioner,
-                        note: s.note,
-                        date: s.date
-                    }]);
-                }else{ return console.log('no note found'); } 
+                else{ return console.log('no note found'); } 
             })
-        })
-        console.log(result)
+            console.log(result)
+        });
     }
 
     return(
@@ -89,7 +72,7 @@ function Searchbar({ dateFormat }){
             { result ? 
             <div className="search__note">
             {result.map(r=>
-                <div className="search__result"key={uuid()}>
+                <div className="search__result"key={uuidv4()}>
                     <div className="note__details">
                         <span className="note__cell">{r.practitioner}</span>
                         <span className="note__cell">{dateFormat(r.date)}</span>
