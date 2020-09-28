@@ -1,0 +1,14 @@
+@import './partials';
+@import './mixins';
+@import './fonts';
+
+.bio{
+    width:100%;
+
+    &__headshot{
+        // width:
+        // height:
+        background-image: url('../styles/assets/images/new.headshot.jpg');
+        background-size: cover;
+    }
+}
