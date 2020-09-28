@@ -53,7 +53,7 @@ function Searchbar({ dateFormat }){
                     type="text" 
                     name="search" 
                     placeholder="Search by keywords..." 
-                    className="create__input"
+                    className="create__input--search"
                     >
                     </input>
                     <button 

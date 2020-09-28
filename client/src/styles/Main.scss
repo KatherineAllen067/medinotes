@@ -15,12 +15,10 @@
     width: 80%;
     min-height: 515px;
     background-color: $white;
-    @include flex-column;
+    display:flex;
     align-items: $middle;
     margin: 0 auto;
     &__welcome{
-        font-family:$medium;
-        font-size:1rem;
         text-align: $middle;
         padding:1rem;
     }

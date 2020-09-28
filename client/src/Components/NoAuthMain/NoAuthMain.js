@@ -5,9 +5,9 @@ function NoAuthMain(){
 
     return(
     <div className="mainNoAuth">
-        <span className="mainNoAuth__welcome">
+        <h1 className="mainNoAuth__welcome">
             Welcome to MediNotes, please Login to view your personal Notes and Suggestions Form.
-        </span>
+        </h1>
     </div>
     )
 }

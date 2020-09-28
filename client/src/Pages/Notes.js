@@ -81,23 +81,23 @@ function Notes(){
     return(
     <>
     <div className="note__container">
+            {/* <div className="note__top__nav"> */}
+                <img src={Back}
+                alt="arrow back"
+                className="note__top__arrow"
+                onClick={goBack} 
+                />
+            {/* </div> */}
         <div className="note__top">
-        <div className="note__top__nav">
-            <img src={Back}
-            alt="arrow back"
-            className="note__top__arrow"
-            onClick={goBack} 
-            />
-        </div>
-            <Searchbar 
-            dateFormat={formatDate}
-            />
-            <Create 
-            notes={notesData}
-            setNotes={setNotesData}
-            />
+                <Searchbar 
+                dateFormat={formatDate}
+                />
         </div>
         <div className="note__bottom">
+                <Create 
+                notes={notesData}
+                setNotes={setNotesData}
+                />
             <div className="note__bottom__column">
             { notesData.map(note=>
                     <NoteItem
