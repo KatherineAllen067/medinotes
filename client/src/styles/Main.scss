@@ -4,7 +4,7 @@
 
 .main{
     width: 100%;
-    min-height: 525px;
+    min-height: 780px;
     background-color:$bg;
     @include flex-column;
     align-items: $middle;
@@ -13,12 +13,14 @@
 
 .mainNoAuth{
     width: 80%;
-    min-height: 515px;
+    min-height: 725px;
     background-color: $white;
     display:flex;
     align-items: $middle;
+    justify-content: $middle;;
     margin: 0 auto;
     &__welcome{
+        width:30rem;
         text-align: $middle;
         padding:1rem;
     }

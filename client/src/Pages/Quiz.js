@@ -64,10 +64,14 @@ function Quiz (){
 			<div className="suggest__results">
 				{Object.values(answer).map(a=>
 					<div className="result__list" key={uuidv4()}>
-						<h4>{a.answers.practitioner}</h4>
-						<span>{a.answers.description}</span>
-						<h4>{a.answers.practitioner2}</h4>
-						<span>{a.answers.description2}</span>
+						<div className="result__list__item">
+							<h4>{a.answers.practitioner}</h4>
+							<span>{a.answers.description}</span>
+						</div>
+						<div className="result__list__item">
+							<h4>{a.answers.practitioner2}</h4>
+							<span>{a.answers.description2}</span>
+						</div>
 					</div>
 				)}
 			</div>

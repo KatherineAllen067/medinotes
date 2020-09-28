@@ -10,7 +10,7 @@ function Footer (){
                     MediNotes
                 <img src={NotePad} alt="pencil" className="footer-icon"/>
                 </h3>
-                <Link to="/aboutus">
+                <Link to="/aboutus" className="footer__link">
                     <h3>About Us</h3>
                 </Link>
             </div>

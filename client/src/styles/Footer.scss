@@ -3,11 +3,11 @@
 @import './partials';
 
 .footer{
-    width:100%;
     height:6rem;
     background-color:$header;
-    display:flex;
+    @include flex-column;
     align-items: $middle;
+    padding:1rem;
     &-title{
         color:$white;
         font-family:$title;
@@ -17,5 +17,10 @@
     &-icon{
         width:2.5rem;
         height:2rem;
+    }
+    &__link{
+        text-decoration: none;
+        color:white;
+        font-family:$title;
     }
 }
