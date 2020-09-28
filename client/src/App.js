@@ -4,6 +4,7 @@ import './App.scss';
 import "./styles/Main.scss";
 import axios from 'axios';
 import Quiz from "./Pages/Quiz.js";
+import About from "./Components/Aboutus/Aboutus.js";
 import Notes from "./Pages/Notes.js";
 import Header from "./Components/Header/Header.js";
 import Footer from "./Components/Footer/Footer.js";
@@ -43,7 +44,8 @@ function App() {
     />
     <Switch>
       <Route exact path="/quiz" component={Quiz} />
-      <Route exact path="/notes" component={Notes}/>      
+      <Route exact path="/notes" component={Notes}/> 
+      <Route exact path="/aboutus" component={About}/>      
       <Route exact path="/home">
         <Auth />
       </Route>
