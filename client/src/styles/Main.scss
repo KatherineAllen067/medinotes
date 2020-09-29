@@ -14,7 +14,6 @@
 .mainNoAuth{
     width: 80%;
     min-height: 725px;
-    background-color: $white;
     display:flex;
     align-items: $middle;
     justify-content: $middle;;
@@ -23,5 +22,18 @@
         width:30rem;
         text-align: $middle;
         padding:1rem;
+        animation: pulse 5s infinite;
+    }
+}
+
+@keyframes pulse{
+    0%{
+        color:$header;
+    }
+    50%{
+        color:black;
+    }
+    100%{
+        color:$lines;
     }
 }
