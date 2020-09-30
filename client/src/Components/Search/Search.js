@@ -25,7 +25,7 @@ function Searchbar({ dateFormat }){
         .then(sear=>{
             console.log(sear.data)
                 sear.data.filter(s=>{
-                   if(s.note || s.practitioner === word){
+                   if(s.note.includes(word)){
                    console.log('contains word');
                    return setResult([...result, {
                     id: uuidv4(),
