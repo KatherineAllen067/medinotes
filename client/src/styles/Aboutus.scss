@@ -35,6 +35,7 @@
     }
 
     &__tech{
+        height:60vmin;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -46,18 +47,22 @@
         }
 
         &--flag{
+            width:15rem;
             display: flex;
             align-items: center;
-            padding: 1rem;
+            justify-content: space-between;
+            padding: 1rem 0;
         }
     }
 
     &__contact{
-        padding: 8rem 0;
+        padding: 2rem 0;
         display: flex;
         flex-direction: column;
-        &--linkedin{
+        &--links{
             padding:1rem 0;
+            display: flex;
+            justify-content: space-between;
         }    
     }
 }

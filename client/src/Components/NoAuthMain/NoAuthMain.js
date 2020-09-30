@@ -6,7 +6,7 @@ function NoAuthMain(){
     return(
     <div className="mainNoAuth">
         <h1 className="mainNoAuth__welcome">
-            Welcome please Login to view your personal Notes and Suggestions Form.
+            Welcome Please Login
         </h1>
     </div>
     )
