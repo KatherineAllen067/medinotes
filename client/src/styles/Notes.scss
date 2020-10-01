@@ -6,9 +6,15 @@
     width:100%;
     background-color:$bg;
     @include flex-column;
+    padding: 4rem 0;
+}
+
+.edit__text{
+    width:32rem;
 }
 
 .note{
+    width:35rem;
     @include flex-column;
     justify-content: $between;
     padding:0.5rem;
@@ -37,7 +43,8 @@
     }
     &__top{
         display: flex;
-        justify-content: $around;
+        justify-content: $middle;
+        padding-bottom:6rem;
         &__nav{
             padding:1rem;
             height:2rem;
@@ -45,16 +52,19 @@
         &__arrow{
             width:2.5rem;
             height:2.5rem;
+            padding-left: 2rem;
         }
     }
     &__bottom{
         width:100%;
-        @include flex-column;
+        display:flex;
+        justify-content: space-evenly;
         align-items: $middle;
         &__column{
-            width:80%;
-            height:750px;
+            width:47%;
+            height:675px;
             overflow:scroll;
+            padding:1rem;
         }
     }
 }
@@ -70,9 +80,9 @@
 }
 
 .create{
-    width: 30rem;
+    width: 22rem;
     @include flex-column;
-    align-items: flex-start;
+    align-items: $middle;
     &__header{
         font-family:$medium;
     }
@@ -95,6 +105,13 @@
         border: 1px solid $lines;
         border-radius: 1.5rem;
         padding:0.5rem;
+        &--search{
+            width:35rem;
+            border: 1px solid $lines;
+            border-radius: 1.5rem;
+            padding:0.5rem;
+
+        }
     }
     &__add{
         width:19rem;

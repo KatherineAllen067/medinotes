@@ -1,9 +1,9 @@
 import React from "react";
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 function Question(props){
 	return(
-		<div className="suggest__question" key={uuid()}>
+		<div className="suggest__question" key={uuidv4()}>
 		<label className="suggest__question--label">
 			{props.question}
 		</label>

@@ -5,10 +5,14 @@
 .result__list{
     @include flex-column;
     align-items: $middle;
+    &__item{
+        padding:1rem 0;
+    }
 }
 
 .suggest{
     width: 31rem;
+    padding-top:5rem;
     margin: 0;
     &-btn{
         background-color:$bg;
@@ -39,6 +43,7 @@
     }
     &__container{
         width:100%;
+        min-height:725px;
         padding:1rem;
         box-sizing: border-box;
         background-color: $bg;
