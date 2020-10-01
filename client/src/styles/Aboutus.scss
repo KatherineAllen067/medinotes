@@ -9,6 +9,12 @@
     display:flex;
     align-items: center;
 
+    &__duration{
+        padding-bottom:1rem;
+        display: flex;
+        justify-content: center;
+    }
+
     &__headshot{
         width: 15rem;
         height: 15rem;
@@ -16,6 +22,14 @@
         background-image: url('../styles/assets/images/new.headshot.jpg');
         background-size: cover;
         box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+    }
+    &__heading{
+        width:8rem;
+        border-bottom: 1px solid black;
+        &--1{
+            width:6rem;
+            border-bottom: 1px solid black;
+        }
     }
 
     &__left{

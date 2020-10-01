@@ -4,8 +4,7 @@ import Add from '../../styles/assets/icons/add-note.png';
 
 const authToken=() => localStorage.getItem('userAuthToken');
 
-function Create({ notes, setNotes }){
-     
+function Create({ notes, setNotes }){  
     //creating a new note
      const publishNote=(e)=>{
         e.preventDefault();

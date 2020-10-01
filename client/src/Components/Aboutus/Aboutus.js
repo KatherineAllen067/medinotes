@@ -16,13 +16,13 @@ function Aboutus(){
                     <div className="bio__headshot"></div>
                     <div className="bio__left--description">
                         <h1 className="bio__name">Katherine Allen</h1>
-                        <h2 className="bio__title">Web Developer</h2>
-                        <span className="bio__duration">Duration 10 Days</span>
+                        <h3 className="bio__title">Web Developer</h3>
                     </div>
                 </div>
             </div>
             <div className="bio__tech">
-                    <h3>Built Using</h3>
+                    <h3 className="bio__duration">Duration 10 Days</h3>
+                    <h3 className="bio__heading--1">Built Using</h3>
                     <div className="bio__tech--icons">
                         <img src={Sass} alt="sass icon" />
                         <img src={RIcon} alt="react icon" />
@@ -33,7 +33,7 @@ function Aboutus(){
                             <img src={Flag} alt="Canadian flag" />
                         </span>
                 <div className="bio__contact">
-                    <h3>Let's Connect</h3>
+                    <h3 className="bio__heading">Let's Connect</h3>
                     
                     <h4 className="bio__contact--links">
                         <img src={Linked} alt="Linked In icon" />
@@ -42,9 +42,9 @@ function Aboutus(){
                     <h4 className="bio__contact--links">
                         <img src={Git} alt="GitHub icon" />
                         https://github.com/katherineallen067</h4>
-                    <h4 className="bio__contact--links">
-                        {/* <img src={Git} alt="GitHub icon" /> */}
-                        https://katherineallenportfolio.netlify.app/</h4>
+                    {/* <h4 className="bio__contact--links">
+                        {/* <img src={Git} alt="GitHub icon" /> 
+                        https://katherineallenportfolio.netlify.app/</h4> */}
                 </div>
             </div>
         </div>
