@@ -4,7 +4,7 @@
 
 .main{
     width: 100%;
-    min-height: 525px;
+    min-height: 780px;
     background-color:$bg;
     @include flex-column;
     align-items: $middle;
@@ -13,32 +13,27 @@
 
 .mainNoAuth{
     width: 80%;
-    min-height: 515px;
-    background-color: $white;
-    @include flex-column;
+    min-height: 725px;
+    display:flex;
     align-items: $middle;
+    justify-content: $middle;;
     margin: 0 auto;
     &__welcome{
-        font-family:$medium;
-        font-size:1rem;
+        width:30rem;
         text-align: $middle;
         padding:1rem;
+        animation: pulse 5s infinite;
     }
 }
-.card-nav2{
-    width:16rem;
-    height:16rem;
-    border-radius:1.5rem;
-    overflow:hidden;
-    background-image: url('./assets/images/quiz-card.jpg');
-    background-size:cover;
-    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
-    
-    &-nav2-title{
-        font-family:$title;
-        padding:0.5rem;
-        display:flex;
-        justify-content: $middle;
-        margin:0;
+
+@keyframes pulse{
+    0%{
+        color:$header;
+    }
+    50%{
+        color:black;
+    }
+    100%{
+        color:$lines;
     }
 }

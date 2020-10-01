@@ -12,17 +12,17 @@
         "question": "Do you have Concerns about your Gastrointestinal system?",
         "id": "225",
         "answers":{
-                "practitioner": "Gastroenterologists",
+                "practitioner": "Gastroenterologist",
                 "description": "A medical practitioner qualified to diagnose and treat disorders of the stomach and intestines.",
-                "practitioner2": "Licensed Acupuncturists",
-                "description2": "a system of integrative medicine that involves pricking the skin or tissues with needles, used to alleviate pain and to treat various physical, mental, and emotional conditions. Originating in ancient China, acupuncture is now widely practiced in the West."
+                "practitioner2": "Licensed Acupuncturist",
+                "description2": "A system of integrative medicine that involves pricking the skin or tissues with needles, used to alleviate pain and to treat various physical, mental, and emotional conditions. Originating in ancient China, acupuncture is now widely practiced in the West."
             }
     },
     {
         "question": "Do you have Concerns about your Well-Being?",
         "id": "325",
         "answers":{
-                "practitioner": "Psychologists",
+                "practitioner": "Psychologist",
                 "description": "A pracitioner who uses talk therapy to treat mental health conditions. They may also act as consultants along with other healthcare providers.",
                 "practitioner2": "Cognitive Behavioral Therapist",
                 "description2": "A short-term form of psychotherapy that focuses on the problems that come up in day-to-day life."
@@ -42,10 +42,10 @@
         "question": "Do you have Concerns about your Muscules and Joints?",
         "id": "525",
         "answers":{ 
-            "practitioner": "Physical therapists",
+            "practitioner": "Physical Therapist",
             "description": "A practitioner who specializes in improving and restoring mobility, movement, strength, flexibility, balance and coordination in people of all ages.",
             "practitioner2": "Chiropractor",
-            "description2": "A dermatologist is a doctor that specializes in treating skin, hair, nail, and mucous membrane disorders and diseases."
+            "description2": "A practitioner of the system of integrative medicine based on the diagnosis and manipulative treatment of misalignments of the joints."
            }
     }
 ]

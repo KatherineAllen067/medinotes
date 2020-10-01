@@ -3,8 +3,8 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import './App.scss';
 import "./styles/Main.scss";
 import axios from 'axios';
-import CalendarPage from "./Pages/Calendar.js";
 import Quiz from "./Pages/Quiz.js";
+import About from "./Components/Aboutus/Aboutus.js";
 import Notes from "./Pages/Notes.js";
 import Header from "./Components/Header/Header.js";
 import Footer from "./Components/Footer/Footer.js";
@@ -44,14 +44,15 @@ function App() {
     />
     <Switch>
       <Route exact path="/quiz" component={Quiz} />
-      <Route exact path="/notes" component={Notes}/>
-      <Route exact path="/calendar" component={CalendarPage}/>
-      
+      <Route exact path="/notes" component={Notes}/> 
+      <Route exact path="/aboutus" component={About}/>      
       <Route exact path="/home">
         <Auth />
       </Route>
       <Route path="/">
-        { login === true ? <Redirect to="/home" /> : <NoAuth /> }
+        { login === true ? 
+        <Redirect to="/home" />
+        : <NoAuth /> }
       </Route>
     </Switch>
     <Footer />

@@ -4,7 +4,7 @@ import Question from "../Components/Question/Question.js";
 import axios from 'axios';
 import Back from '../styles/assets/icons/back-icon.png';
 import '../styles/Quiz.scss';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 function Quiz (){
 	const [ questions, setQuestions ] = useState([]);
@@ -40,19 +40,19 @@ function Quiz (){
 	}
 
 	return(
-		<div className="quiz__container"> 
+		<div className="suggest__container"> 
 			<div className="quiz__nav">
 				<img src={Back} 
 				alt="arrow back" 
-				className="icon-back__quiz"
+				className="icon-back__suggest"
 				onClick={goBack} />
 			</div>
-			<div className="quiz">
-				<h1 className="quiz__title">Choose a Health Concern to see Suggestions</h1>
+			<div className="suggest">
+				<h1 className="suggest__title">Choose a Health Concern to see Suggestions</h1>
 				<form> 
 				{ questions.map(q=>
 				<Question
-				key={uuid()}
+				key={uuidv4()}
 				question={q.question}
 				id={q.id}
 				clickHandler={getChecked}
@@ -61,13 +61,17 @@ function Quiz (){
 				)}
 				</form>
 			</div>
-			<div className="quiz__results">
+			<div className="suggest__results">
 				{Object.values(answer).map(a=>
-					<div className="result__list" key={uuid()}>
-						<h4>{a.answers.practitioner}</h4>
-						<span>{a.answers.description}</span>
-						<h4>{a.answers.practitioner2}</h4>
-						<span>{a.answers.description2}</span>
+					<div className="result__list" key={uuidv4()}>
+						<div className="result__list__item">
+							<h4>{a.answers.practitioner}</h4>
+							<span>{a.answers.description}</span>
+						</div>
+						<div className="result__list__item">
+							<h4>{a.answers.practitioner2}</h4>
+							<span>{a.answers.description2}</span>
+						</div>
 					</div>
 				)}
 			</div>

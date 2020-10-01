@@ -7,7 +7,7 @@ import '../styles/Notes.scss';
 import Delete from '../styles/assets/icons/delete-icon.png';
 import Back from '../styles/assets/icons/back-icon.png';
 import axios from 'axios';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 const authToken=() => localStorage.getItem('userAuthToken');
 
@@ -60,43 +60,48 @@ function Notes(){
     const editNote=(id)=>{
         let newNote = text.current;
         console.log('new note is: ', newNote);
-        axios.put(`http://localhost:8080/notes/${id}`,{
-                note: newNote
-        },{
-            headers: { authorization: `Bearer ${authToken()}`}
-        })
-        .then(edit=>{
-            setNotesData(edit.data)
-        })
-        .catch(err=>{
-            console.log('error with edit request', err)
-        });
+        //if newNote empty don't update "" else not empy string check docs
+        if(newNote === ""){
+            console.log("nothing to change")
+        }else{
+            axios.put(`http://localhost:8080/notes/${id}`,{
+                    note: newNote
+            },{
+                headers: { authorization: `Bearer ${authToken()}`}
+            })
+            .then(edit=>{
+                setNotesData(edit.data)
+            })
+            .catch(err=>{
+                console.log('error with edit request', err)
+            });
+        }
     }
 
     return(
     <>
     <div className="note__container">
+            {/* <div className="note__top__nav"> */}
+                <img src={Back}
+                alt="arrow back"
+                className="note__top__arrow"
+                onClick={goBack} 
+                />
+            {/* </div> */}
         <div className="note__top">
-        <div className="note__top__nav">
-            <img src={Back}
-            alt="arrow back"
-            className="note__top__arrow"
-            onClick={goBack} 
-            />
-        </div>
-            <Searchbar 
-            dateFormat={formatDate}
-            />
-            <Create 
-            notes={notesData}
-            setNotes={setNotesData}
-            />
+                <Searchbar 
+                dateFormat={formatDate}
+                />
         </div>
         <div className="note__bottom">
+                <Create 
+                notes={notesData}
+                setNotes={setNotesData}
+                />
             <div className="note__bottom__column">
             { notesData.map(note=>
                     <NoteItem
-                    key={uuid()}
+                    key={uuidv4()}
                     id={note.id}
                     note={note.note}
                     practitioner={note.practitioner}
@@ -121,10 +126,10 @@ function NoteItem(props){
                 <span className="note__cell">{props.practitioner}</span>
                 <span className="note__cell">{props.date}</span>
             </div>
-            <div>
+            <div className="note__blurb">
                 {/* library on change to listen to change */}
                 <ContentEditable 
-                className="note__blurb"
+                className="edit__text"
                 html={props.note}
                 onBlur={()=>{props.editFunction(props.id)}}
                 onChange={props.changeHandler}

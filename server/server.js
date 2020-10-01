@@ -34,7 +34,7 @@ const authorize =(req, res, next)=>{
 const users ={
     Emily:{
         username:'Emily',
-        password:'1234'
+        password:'5678'
     },
     Liam:{
         username:'Liam',
@@ -71,7 +71,6 @@ app.use('/notes', authorize, notes);
 //endpoints for quiz no auth needed
 app.use("/quiz", quiz)
 
-//user A 1234, user B 4321
 app.listen(8080, ()=>{
     console.log('medinotes listening on 8080');
 });
