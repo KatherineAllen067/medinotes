@@ -7,12 +7,6 @@ const authToken=() => localStorage.getItem('userAuthToken');
 
 function Searchbar({ dateFormat }){
     const [ result, setResult ] = useState([]); 
-    //function to take word and test with all the notes and doctor data
-    //forEach note does it include word?
-    //if it includes word 
-    //print note
-    //take the data and filter, does note of prac include it? technially don't need to split the string
-    //filter instead don't have to split 
 
     //show search results 
     const findNote = (e)=>{
@@ -24,6 +18,7 @@ function Searchbar({ dateFormat }){
         })
         .then(sear=>{
             console.log(sear.data)
+            //filter to display any notes with the word in the note
                 sear.data.filter(s=>{
                    if(s.note.includes(word)){
                    console.log('contains word');
@@ -69,21 +64,22 @@ function Searchbar({ dateFormat }){
                 </div>
                 </form>
             </div>
+            {/* if there is a result present show the result if not don't show anything */}
             { result ? 
             <div className="search__note">
-            {result.map(r=>
-                <div className="search__result"key={uuidv4()}>
-                    <div className="note__details">
-                        <span className="note__cell">{r.practitioner}</span>
-                        <span className="note__cell">{dateFormat(r.date)}</span>
-                    </div>
-                    <div>
-                        <p>{r.note}</p>
-                    </div>
+                {result.map(r=>
+                    <div className="search__result"key={uuidv4()}>
+                        <div className="note__details">
+                            <span className="note__cell">{r.practitioner}</span>
+                            <span className="note__cell">{dateFormat(r.date)}</span>
+                        </div>
+                        <div>
+                            <p>{r.note}</p>
+                        </div>
                 </div>)}
-            </div>:
-            <>
-            </>}
+                </div>:
+                <>
+                </>}
         </div>
         </>
     )

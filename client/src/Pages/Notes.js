@@ -1,11 +1,10 @@
 import React, {useState, useEffect, useRef} from "react";
 import { useHistory } from 'react-router-dom';
-import ContentEditable from 'react-contenteditable'
 import Searchbar from '../Components/Search/Search.js';
 import Create from '../Components/Create/Create.js';
 import '../styles/Notes.scss';
-import Delete from '../styles/assets/icons/delete-icon.png';
 import Back from '../styles/assets/icons/back-icon.png';
+import NoteItem from '../Components/NoteItem/NoteItem.js';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -15,7 +14,7 @@ function Notes(){
     const [ notesData, setNotesData ] = useState([]);
     const text = useRef('')
     let history = useHistory();
-
+    //make sure the date shown is a readable date not JS date object
     function formatDate(t){
     let time = t
     var myDate = new Date(time);
@@ -81,13 +80,11 @@ function Notes(){
     return(
     <>
     <div className="note__container">
-            {/* <div className="note__top__nav"> */}
                 <img src={Back}
                 alt="arrow back"
                 className="note__top__arrow"
                 onClick={goBack} 
                 />
-            {/* </div> */}
         <div className="note__top">
                 <Searchbar 
                 dateFormat={formatDate}
@@ -115,38 +112,6 @@ function Notes(){
             </div>
         </div>
     </>
-    )
-}
-
-function NoteItem(props){
-    return(
-        <>
-        <div className="note">
-            <div className="note__details">
-                <span className="note__cell">{props.practitioner}</span>
-                <span className="note__cell">{props.date}</span>
-            </div>
-            <div className="note__blurb">
-                {/* library on change to listen to change */}
-                <ContentEditable 
-                className="edit__text"
-                html={props.note}
-                onBlur={()=>{props.editFunction(props.id)}}
-                onChange={props.changeHandler}
-                />
-            </div>
-            <div className="note__btn">
-            <button  
-            className="note__btn--1"  
-            onClick={()=>{props.deleteFunction(props.id)}}>
-            <img src={Delete}
-            alt="trash can"
-            className="icon__1"
-            />
-            </button>
-            </div>
-        </div>
-        </>
     )
 }
 
