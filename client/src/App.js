@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import './App.scss';
+import './styles/App.scss';
 import "./styles/Main.scss";
 import axios from 'axios';
 import Quiz from "./Pages/Quiz.js";

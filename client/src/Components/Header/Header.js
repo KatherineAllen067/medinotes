@@ -13,6 +13,7 @@ function Header({ profile, setProfile, name, setName, login, setLogin, fetchProf
                 <img src={NotePad} alt="pencil" className="header-icon"/>
                 </h3>
             </Link>
+        {/* pass down user info to make backend call for which notes to grab */}
         <Login 
         user={profile} 
         setUser={setProfile} 

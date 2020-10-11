@@ -18,6 +18,7 @@ function Quiz (){
 	useEffect(()=>{
 		axios.get('http://localhost:8080/quiz')
 		.then(res=>{
+			//all questions and answers are set in state
 			setQuestions(res.data)	
 		})
 		.catch(err=>{
@@ -26,6 +27,7 @@ function Quiz (){
 	}, [])
 
 	const getChecked=(id)=>{
+		//set the answers when there is an isn't a checked box 
 		if( answer[id] === undefined ){
 			let answerIds= {...answer};
 			let newAnswer = questions.find(concern=> concern.id === id)
@@ -62,6 +64,7 @@ function Quiz (){
 				</form>
 			</div>
 			<div className="suggest__results">
+				{/* answer is an object turn the values into an array to show all the values */}
 				{Object.values(answer).map(a=>
 					<div className="result__list" key={uuidv4()}>
 						<div className="result__list__item">

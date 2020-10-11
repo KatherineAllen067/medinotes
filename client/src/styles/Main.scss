@@ -3,7 +3,7 @@
 @import './fonts';
 
 .main{
-    width: 100%;
+    width: $full;
     min-height: 780px;
     background-color:$bg;
     @include flex-column;

@@ -3,7 +3,7 @@
 @import './fonts';
 
 .card{
-    width:100%;
+    width:$full;
     display:flex;
     justify-content: space-evenly;
         &-nav-title{
@@ -21,22 +21,11 @@
 }
 
 .card-nav1{
-    width:16rem;
-    height:16rem;
-    border-radius:1.5rem;
-    overflow:hidden;
+   @include card;
     background-image: url('./assets/images/notes-bg.jpg');
-    background-size:cover;
-    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
 }
 
 .card-nav2{
-    width:16rem;
-    height:16rem;
-    border-radius:1.5rem;
-    overflow:hidden;
-    background-image: url('./assets/images/quiz-card.jpg');
-    background-size:cover;
-    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
-    
+    @include card;
+    background-image: url('./assets/images/quiz-card.jpg'); 
 }

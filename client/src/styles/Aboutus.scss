@@ -3,25 +3,21 @@
 @import './fonts';
 
 .bio{
-    width:100%;
-    height:100%;
+    width:$full;
+    height:$full;
     padding:2rem 0;
     display:flex;
-    align-items: center;
+    align-items: $middle;
 
     &__duration{
         padding-bottom:1rem;
         display: flex;
-        justify-content: center;
+        justify-content: $middle;
     }
 
     &__headshot{
-        width: 15rem;
-        height: 15rem;
-        border-radius: 1.5rem;
+        @include card;
         background-image: url('../styles/assets/images/new.headshot.jpg');
-        background-size: cover;
-        box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
     }
     &__heading{
         width:8rem;
@@ -34,10 +30,9 @@
 
     &__left{
         width:60%;
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        @include flex-column;
+        align-items: $middle;
+        justify-content: $middle;
         padding:5rem 0;
         &--description{
             padding:1rem;
@@ -50,9 +45,8 @@
 
     &__tech{
         height:60vmin;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex-column;
+        justify-content: $middle;
         padding:1rem;
         &--icons{
             padding:1rem 0;
@@ -63,7 +57,7 @@
         &--flag{
             width:15rem;
             display: flex;
-            align-items: center;
+            align-items: $middle;
             justify-content: space-between;
             padding: 1rem 0;
         }
@@ -71,12 +65,10 @@
 
     &__contact{
         padding: 2rem 0;
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         &--links{
             padding:1rem 0;
-            display: flex;
-            justify-content: space-between;
+            @include flex-between;
         }    
     }
 }

@@ -7,8 +7,7 @@ function Footer (){
         return(
             <div className="footer">
                 <h3 className="footer-title">
-                    MediNotes
-                <img src={NotePad} alt="pencil" className="footer-icon"/>
+                    MediNotes<img src={NotePad} alt="pencil" className="footer-icon"/>
                 </h3>
                 <Link to="/aboutus" className="footer__link">
                     <h3>About Us</h3>

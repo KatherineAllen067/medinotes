@@ -15,6 +15,8 @@ function Create({ notes, setNotes }){
         {headers: { authorization: `Bearer ${authToken()}`}
         })
         .then(post=>{
+            //update the displayed notes with new note data from backend 
+            //set the update state
             setNotes(post.data);
         })
         .catch(error =>{

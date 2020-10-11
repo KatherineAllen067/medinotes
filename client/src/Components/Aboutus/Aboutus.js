@@ -29,23 +29,20 @@ function Aboutus(){
                         <img src={JS} alt="javascript icon" />
                         <img src={Node} alt="nodejs icon" />
                     </div>
-                        <span className="bio__tech--flag">Canadian Institute for Health Information 
-                            <img src={Flag} alt="Canadian flag" />
-                        </span>
-                <div className="bio__contact">
-                    <h3 className="bio__heading">Let's Connect</h3>
-                    
-                    <h4 className="bio__contact--links">
-                        <img src={Linked} alt="Linked In icon" />
-                        https://linkedin.com/in/katherine-allen067</h4>
-                    
-                    <h4 className="bio__contact--links">
-                        <img src={Git} alt="GitHub icon" />
-                        https://github.com/katherineallen067</h4>
-                    {/* <h4 className="bio__contact--links">
-                        {/* <img src={Git} alt="GitHub icon" /> 
-                        https://katherineallenportfolio.netlify.app/</h4> */}
-                </div>
+                    <span className="bio__tech--flag">Canadian Institute for Health Information 
+                        <img src={Flag} alt="Canadian flag" />
+                    </span>
+                    <div className="bio__contact">
+                        <h3 className="bio__heading">Let's Connect</h3>
+                        
+                        <h4 className="bio__contact--links">
+                            <img src={Linked} alt="Linked In icon" />
+                            https://linkedin.com/in/katherine-allen067</h4>
+                        
+                        <h4 className="bio__contact--links">
+                            <img src={Git} alt="GitHub icon" />
+                            https://github.com/katherineallen067</h4>
+                    </div>
             </div>
         </div>
     );

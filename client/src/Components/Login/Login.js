@@ -19,6 +19,7 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
      })
      .then(res=>{
          console.log('Login sucessful: ', res.data);
+         //store JWT token in login to grab 
          localStorage.setItem('userAuthToken',res.data.token);
          setLoggedIN(true)
          accessProfile();
@@ -30,6 +31,7 @@ function Login({ accessProfile, userName, loggedIN, setLoggedIN }){
       history.push("/")
     }
     const handleLogout = () => {
+        //remove JWT token from local storage after logout
         localStorage.removeItem('clientAuthToken');
         setLoggedIN(false);
         goBack();

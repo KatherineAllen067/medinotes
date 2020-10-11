@@ -42,7 +42,7 @@
         padding:1rem;
     }
     &__container{
-        width:100%;
+        width:$full;
         min-height:725px;
         padding:1rem;
         box-sizing: border-box;
@@ -75,7 +75,6 @@
 }
 
 .icon-back__suggest{
-    width:2.5rem;
-    height:2.5rem;
+    @include icon;
     padding:1rem;
 }

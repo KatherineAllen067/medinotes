@@ -1,0 +1,18 @@
+@import './partials';
+@import './mixins';
+@import './fonts';
+
+*, 
+* :before,
+* :after{
+  font-family:$medium;
+  margin:0;
+}
+
+
+body{
+  background-color:$white;
+  margin:0;
+  height:$full;
+  width:$full;
+}
