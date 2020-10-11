@@ -1,5 +1,5 @@
 import React from "react";
-import Delete from '../styles/assets/icons/delete-icon.png';
+import Delete from '../../styles/assets/icons/delete-icon.png';
 import ContentEditable from 'react-contenteditable'
 
 function NoteItem(props){

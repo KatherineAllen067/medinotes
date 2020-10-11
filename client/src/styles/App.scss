@@ -1,6 +1,6 @@
-@import './styles/fonts';
-@import './styles/mixins';
-@import './styles/partials';
+@import './partials';
+@import './mixins';
+@import './fonts';
 
 *, 
 * :before,
@@ -11,8 +11,8 @@
 
 
 body{
-  background-color:#ffffff;
+  background-color:$white;
   margin:0;
-  height:100%;
-  width:100%;
+  height:$full;
+  width:$full;
 }
