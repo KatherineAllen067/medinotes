@@ -2,6 +2,11 @@
 @import './mixins';
 @import './fonts';
 
+// transition: (property) (duration) (transition-timing-function) (transition-delay);
+//animation: (animation-name) (animation-duration) 
+//(animation-fill-mode) (animation-timing-function) 
+//(animation-iteration-count) (animation-direction) (animation-delay);
+
 .main{
     width: $full;
     min-height: 780px;
@@ -22,7 +27,7 @@
         width:30rem;
         text-align: $middle;
         padding:1rem;
-        animation: pulse 5s infinite;
+        animation: pulse 30s infinite;
     }
 }
 
@@ -30,10 +35,21 @@
     0%{
         color:$header;
     }
+    25%{
+        color:blue;
+    }
     50%{
         color:black;
+    }
+    75%{
+        color:skyblue;
     }
     100%{
         color:$lines;
     }
 }
+
+
+// .pencil{
+
+// }
