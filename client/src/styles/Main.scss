@@ -2,11 +2,6 @@
 @import './mixins';
 @import './fonts';
 
-// transition: (property) (duration) (transition-timing-function) (transition-delay);
-//animation: (animation-name) (animation-duration) 
-//(animation-fill-mode) (animation-timing-function) 
-//(animation-iteration-count) (animation-direction) (animation-delay);
-
 .main{
     width: $full;
     min-height: 780px;
@@ -20,6 +15,7 @@
     width: 80%;
     height:61vmax;
     display:flex;
+    flex-direction: column;
     align-items: $middle;
     justify-content: $middle;;
     margin: 0 auto;
@@ -27,8 +23,15 @@
         width:30rem;
         text-align: $middle;
         padding:1rem;
-        animation: pulse 30s infinite;
+        animation: pulse 30s ease-in-out infinite;
     }
+}
+
+.pencil{
+    width:3rem;
+    height:3.5rem;
+    z-index:10;
+    animation: write 3s ease infinite alternate;
 }
 
 @keyframes pulse{
@@ -49,7 +52,20 @@
     }
 }
 
-
-// .pencil{
-
-// }
+@keyframes write{
+    0%{
+        transform:translateX(-50px)
+    }
+    25%{
+        transform:translateX(-70px);
+    }
+    50%{
+        transform:translateX(90px);
+    }
+    75%{
+        transform:translateX(100px);
+    }
+    100%{
+        transform:translateX(200px);
+    }
+}
