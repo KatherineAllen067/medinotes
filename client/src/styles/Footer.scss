@@ -3,11 +3,12 @@
 @import './partials';
 
 .footer{
-    height:6rem;
+    height: 6.5vmax;
     background-color:$header;
-    @include flex-column;
+    display:flex;
+    justify-content: space-between;
     align-items: $middle;
-    padding:1rem;
+    padding:0.5rem;
     &-title{
         color:$white;
         font-family:$title;
@@ -21,6 +22,6 @@
     &__link{
         text-decoration: none;
         color:$white;
-        font-family:$title;
+        padding: 1rem 1rem 0 1rem;
     }
 }

@@ -2,17 +2,6 @@
 @import './_mixins';
 @import './_fonts';
 
-.note__container{
-    width:$full;
-    background-color:$bg;
-    @include flex-column;
-    padding: 4rem 0;
-}
-
-.edit__text{
-    width:32rem;
-}
-
 .note{
     width:35rem;
     @include flex-column;
@@ -66,16 +55,29 @@
             padding:1rem;
         }
     }
+    &__container{
+        width:$full;
+        background-color:$bg;
+        @include flex-column;
+        padding: 4rem 0;
+    }
 }
 
-.icon__1{
-    width:1.5rem;
-    height:1.5rem;
+.icon{
+    &__1{
+        width:1.5rem;
+        height:1.5rem;
+    }
+    &__2{
+        width:2rem;
+        height:2rem;
+    }
 }
 
-.icon__2{
-    width:2rem;
-    height:2rem;
+
+
+.edit__text{
+    width:32rem;
 }
 
 .create{

@@ -1,6 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import NotePad from '../../styles/assets/icons/notes-icon.png';
 import '../../styles/Header.scss';
 import Logo from '../Logo/Logo.js';
 import Login from '../Login/Login.js';
