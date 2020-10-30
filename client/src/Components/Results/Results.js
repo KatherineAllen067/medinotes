@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function Result({ practitioner, practitioner2, description, description2 }){
     return(
     <div className="result__list">

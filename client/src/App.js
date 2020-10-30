@@ -18,12 +18,14 @@ function App() {
   const [ name, setName ] = useState('')
   const [ profile, setProfile ] = useState(null)
 
+  //get request for user notes with auth token 
   const getProfile=()=>{
     axios.get('http://localhost:8080/notes', {
         headers: { authorization: `Bearer ${authToken()}` }
     })
     .then(res=>{
         console.log('profile response', res.data);
+        //set the logged profile to the user logged in
         setProfile(res.data) 
         setLogin(true)
     })

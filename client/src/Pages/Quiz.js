@@ -33,8 +33,7 @@ function Quiz (){
 			let answerIds= {...answer};
 			let newAnswer = questions.find(concern=> concern.id === id)
 			answerIds[id] = newAnswer;
-			setAnswer(answerIds)
-			
+			setAnswer(answerIds)	
 		}else{
 			var answerIds= {...answer}
 			delete answerIds[id]

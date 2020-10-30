@@ -16,13 +16,13 @@ function Notes(){
     let history = useHistory();
     //make sure the date shown is a readable date not JS date object
     function formatDate(t){
-    let time = t
-    var myDate = new Date(time);
-    var year = myDate.getFullYear()
-    var month = myDate.getMonth()+1;
-    var date = myDate.getDate();
-    var dateFormat = date +"/" + month + "/" + year;
-    return dateFormat
+        let time = t
+        var myDate = new Date(time);
+        var year = myDate.getFullYear()
+        var month = myDate.getMonth()+1;
+        var date = myDate.getDate();
+        var dateFormat = date +"/" + month + "/" + year;
+        return dateFormat
     }
 
 	function goBack(){
