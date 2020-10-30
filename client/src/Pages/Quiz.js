@@ -1,6 +1,7 @@
 import React, { useEffect, useState }from "react";
 import { useHistory } from "react-router-dom";
 import Question from "../Components/Question/Question.js";
+import Result from "../Components/Results/Results.js";
 import axios from 'axios';
 import Back from '../styles/assets/icons/back-icon.png';
 import '../styles/Quiz.scss';
@@ -66,16 +67,13 @@ function Quiz (){
 			<div className="suggest__results">
 				{/* answer is an object turn the values into an array to show all the values */}
 				{Object.values(answer).map(a=>
-					<div className="result__list" key={uuidv4()}>
-						<div className="result__list__item">
-							<h4>{a.answers.practitioner}</h4>
-							<span>{a.answers.description}</span>
-						</div>
-						<div className="result__list__item">
-							<h4>{a.answers.practitioner2}</h4>
-							<span>{a.answers.description2}</span>
-						</div>
-					</div>
+				<Result
+					key={uuidv4()}
+					practitioner={a.answers.practitioner}
+					description={a.answers.description}
+					practitioner2={a.answers.practitioner2}
+					description2={a.answers.description2}
+					/>
 				)}
 			</div>
 		</div>
