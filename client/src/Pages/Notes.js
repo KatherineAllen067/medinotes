@@ -59,7 +59,7 @@ function Notes(){
     const editNote=(id)=>{
         let newNote = text.current;
         console.log('new note is: ', newNote);
-        //if newNote empty don't update "" else not empy string check docs
+        //if newNote empty don't update "" else not empty string check docs
         if(newNote === ""){
             console.log("nothing to change")
         }else{

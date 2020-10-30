@@ -50,9 +50,7 @@ function App() {
         <Auth />
       </Route>
       <Route path="/">
-        { login === true ? 
-        <Redirect to="/home" />
-        : <NoAuth /> }
+        { login === true ? <Redirect to="/home" /> : <NoAuth /> }
       </Route>
     </Switch>
     <Footer />
