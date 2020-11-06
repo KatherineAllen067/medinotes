@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
-const { true } = require('tap');
 const Schema = mongoose.Schema;
 
 const ItemSchema = new Schema({
     name:{
         type: String,
-        require:true
+        required:true
+    },
+    date:{
+        type: Date,
+        default: Date.now
     }
 });
-
+//export the model to bring into other files
 module.exports = Item = mongoose.model('item', ItemSchema);
