@@ -11,5 +11,6 @@ const ItemSchema = new Schema({
         default: Date.now
     }
 });
+
 //export the model to bring into other files
 module.exports = Item = mongoose.model('item', ItemSchema);
