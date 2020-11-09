@@ -1,32 +1,17 @@
-require('dotenv').config()
-const express = require("express");
-const mongoose = require("mongoose");
-const app = express();
-const cors = require("cors");
-const notes = require('./routes/notes.js');
-const quiz = require('./routes/quiz.js');
-const bodyparser = require("body-parser");
-const jwt =require('jsonwebtoken');
-
-//middleware for cors
-app.use(cors());
-
-//for posting to data sets
-app.use(express.json());
-app.use(bodyparser.json());
-
-//DB configure
-const db= require("./config/keys").mongoURI;
-
-//connect to Mongo
-mongoose
-.connect(db)
-.then(()=> console.log('MongoDB Connected...'))
-    .catch(err=>console.log('there is an error in connection', err))
-
-const port = process.env.PORT || 8080;
-
-app.listen(port, ()=>console.log(`server started on port ${port}`))
+// require('dotenv').config()
+// const express = require("express");
+// // const mongoose = require("mongoose");
+// const app = express();
+// const cors = require("cors");
+// const notes = require('./routes/notes.js');
+// const quiz = require('./routes/quiz.js');
+// const bodyparser = require("body-parser");
+// const jwt =require('jsonwebtoken');
+// //middleware for cors
+// app.use(cors());
+// //for posting to data sets
+// app.use(express.json());
+// app.use(bodyparser.json());
 
 // const authorize =(req, res, next)=>{
 //     console.log(req.headers)
@@ -90,3 +75,39 @@ app.listen(port, ()=>console.log(`server started on port ${port}`))
 // app.listen(8080, ()=>{
 //     console.log('medinotes listening on 8080');
 // });
+
+require('dotenv').config()
+const express = require("express");
+const mongoose = require("mongoose");
+const app = express();
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const jwt =require('jsonwebtoken');
+//bring in the api routes
+const Items = require('./routes/api/items');
+
+//middleware for cors
+app.use(cors());
+
+//for posting to data sets
+app.use(express.json());
+app.use(bodyParser.json());
+
+//DB configure
+const db= require('./config/key.js').mongoURI;
+
+//connect to Mongo
+mongoose
+.connect(db, {
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+})
+.then(()=> console.log('MongoDB Connected...'))
+    .catch(err=>console.log('there is an error in connection', err))
+
+//Use Routes api/items/** any request refer to this file
+app.use('/api/items',Items);
+
+const port = process.env.PORT || 9000;
+
+app.listen(port, ()=>console.log(`server started on port ${port}`))
